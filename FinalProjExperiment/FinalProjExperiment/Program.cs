@@ -12,28 +12,31 @@ namespace WagCorp
     {
         public static void Main(string[] args)
         {
-            //Start page to find order type
-            Console.WriteLine("Welcome to the Wag Corp's Gadgets & Widgets online shop!");
-            Console.Write("Where all your gadget and widget needs are met!");
+            Console.WriteLine("Welcome to the Wag Corp's Gadgets & Widgets online shop...");
+            Console.WriteLine("Where all your gadget and widget needs are met!");
             Console.WriteLine(" ");
-            Console.WriteLine("Please let us know if you would like to place a Gadget (1) or a Widget (2) order:");
-            int orderType = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please let us know if you would like to place a Gadget (G) or a Widget (W) order with us:");
+            char orderType = Convert.ToChar(Console.ReadLine().ToUpper());
 
-            if (orderType == 1)
+            do
             {
-                OrderFactory GadgetOrder = new GadgetOrderFactory();
-                GadgetOrder.Build();
-            }
-            else if (orderType == 2)
-            {
-                OrderFactory WidgetOrder = new WidgetOrderFactory();
-                WidgetOrder.Build();
-            }
-            else
-            {
-                Console.WriteLine("You did not enter a valid option. Please start over.");
-                Console.WriteLine(" ");
-            }
+                if (orderType == 'G')
+                {
+                    OrderFactory GadgetOrder = new GadgetOrderFactory();
+                    GadgetOrder.Build();
+                }
+                else if (orderType == 'W')
+                {
+                    OrderFactory WidgetOrder = new WidgetOrderFactory();
+                    WidgetOrder.Build();
+                }
+                else
+                {
+                    Console.WriteLine("You did not enter a valid choice. Please try again."); 
+                    break;
+                }
+            }while (orderType != 'G' || orderType != 'W');
         }
+
     }
 }
