@@ -12,5 +12,6 @@ namespace Gadgets
         void SetupLights();
         void SetupSwitches();
         void SetupButtons();
+        void SetupSerialNumber();
     }
 }

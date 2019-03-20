@@ -4,13 +4,29 @@ using System.Text;
 
 namespace SerialNumbers
 {
-    public class SerialNums
+    public class SerialNumberGenerator
     {
-        private static volatile SerialNums instance;
+        private static volatile SerialNumberGenerator instance;
         private static object synchronizationRoot = new object();
         private int _count = 1245;
-
-        private SerialNums() { }
+        public static SerialNumberGenerator Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (synchronizationRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new SerialNumberGenerator();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+        private SerialNumberGenerator() { }
 
         public int NextSerial
         {

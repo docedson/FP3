@@ -54,7 +54,8 @@ namespace Order
                     gadget.SetupSwitches();
                     gadget.SetupButtons();
                     gadget.SetupLights();
-                    gadget.SetupPower();
+                    gadget.SetupSerialNumber();
+                    //gadget.SetupPower();
                     Gadgets.Add(gadget);
                 }
 

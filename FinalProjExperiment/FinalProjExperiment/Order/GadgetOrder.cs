@@ -37,8 +37,10 @@ namespace Order
                 Console.Write("How many Small Gadgets would you like?: ");
                 sResponse = Console.ReadLine();
                 _iNumberOfSmallGadgets = int.Parse(sResponse);
+
                 if (_iNumberOfSmallGadgets > 0)
                 {
+                    Console.WriteLine(" ");
                     Console.Write("Choose an option for the Gadget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
 
@@ -48,6 +50,7 @@ namespace Order
 
                             Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                             int sColor = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(" ");
 
                             switch (sColor)
                             {
@@ -89,12 +92,17 @@ namespace Order
                     SetupSmallGadgets();
                     Console.WriteLine(" ");
                 }
+                else
+                {
+                    Console.WriteLine("You did not enter a valid option. Please try again.");
+                }
 
                 Console.Write("How many Medium Gadgets would you like?: ");
                 sResponse2 = Console.ReadLine();
                 _iNumberOfMediumGadgets = int.Parse(sResponse2);
                 if (_iNumberOfMediumGadgets > 0)
                 {
+                    Console.WriteLine(" ");
                     Console.Write("Choose an option for the Gadget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
 
@@ -104,6 +112,7 @@ namespace Order
 
                             Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                             int sColor = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(" ");
 
                             switch (sColor)
                             {
@@ -145,7 +154,11 @@ namespace Order
                     SetupMediumGadgets();
                     Console.WriteLine(" ");
                 }
-
+                else
+                {
+                    Console.WriteLine("You did not enter a valid option. Please try again.");
+                }
+                Console.WriteLine(" ");
                 Console.Write("How many Large Gadgets would you like?: ");
                 sResponse3 = Console.ReadLine();
                 _iNumberOfLargeGadgets = int.Parse(sResponse3);
@@ -160,6 +173,7 @@ namespace Order
 
                             Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                             int sColor = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(" ");
 
                             switch (sColor)
                             {
@@ -256,6 +270,7 @@ namespace Order
             gadget.SetupButtons();
             gadget.SetupLights();
             gadget.SetupPower();
+            gadget.SetupSerialNumber();
             _Gadgets.Add(gadget);
         }
 
@@ -296,7 +311,12 @@ namespace Order
 
             Console.WriteLine("-------Order Summary-------");
 
-            Console.WriteLine("Total Gadgets  : {0, 5} {1, 5}", (_iNumberOfSmallGadgets + _iNumberOfMediumGadgets + _iNumberOfLargeGadgets).ToString(), " that are " + _sColorDefaultGadget1 + ", " + _sColorDefaultGadget2 + ", and " + _sColorDefaultGadget3);
+            Console.WriteLine("Total Small Gadgets   : {0, 5} {1, 5}", (_iNumberOfSmallGadgets).ToString(), " that are " + _sColorDefaultGadget1);
+            //Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ", (SerailNumSmallG));
+            Console.WriteLine("Total Medium Gadgets  : {0, 5} {1, 5}", (_iNumberOfMediumGadgets).ToString(), " that are " + _sColorDefaultGadget2);
+            //Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ", (SerailNumMediumG));
+            Console.WriteLine("Total Large Gadgets   : {0, 5} {1, 5}", (_iNumberOfLargeGadgets).ToString(), " that are " + _sColorDefaultGadget3);
+            //Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ", (SerailNumLargeG));
             Console.WriteLine("Total Butttons : {0, 5}", iTotalButtons.ToString());
             Console.WriteLine("Total Lights   : {0, 5}", iTotalLights.ToString());
             Console.WriteLine("Total Switches : {0, 5}", iTotalSwitches.ToString());

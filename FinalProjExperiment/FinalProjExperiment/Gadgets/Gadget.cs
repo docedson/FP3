@@ -182,6 +182,11 @@ namespace Gadgets
 
         }
 
+        public virtual void SetupSerialNumber()
+        {
+
+        }
+
         public virtual void SetupPower()
         {
 
