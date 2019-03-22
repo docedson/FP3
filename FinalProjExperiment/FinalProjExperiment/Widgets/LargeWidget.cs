@@ -10,7 +10,7 @@ namespace Widgets
     {
         public LargeWidget() : base(25.00f)
         {
-            Console.WriteLine("This requires Large Widgets for " + Price.ToString("C2") + "each");
+            //Console.WriteLine("- Large Widgets for " + Price.ToString("C2") + "each");
         }
         public override void SetupGears(bool IsGadgetOrder)
         {

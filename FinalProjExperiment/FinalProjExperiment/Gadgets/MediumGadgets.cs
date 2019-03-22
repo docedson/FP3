@@ -16,6 +16,7 @@ namespace Gadgets
             _defaultLights = 3;
 
             Console.WriteLine("The selected Medium Gadget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("It is made up of:");
         }
 
         public override void SetupWidgets()

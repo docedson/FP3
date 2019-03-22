@@ -10,7 +10,7 @@ namespace Widgets
     {
         public MediumWidget() : base(20.00f)
         {
-            Console.WriteLine("This requires Medium Widgets for " + Price.ToString("C2") + " each");
+            //Console.WriteLine("- Medium Widgets for " + Price.ToString("C2") + " each");
         }
         public override void SetupGears(bool IsGadgetOrder)
         {

@@ -18,24 +18,24 @@ namespace WagCorp
             Console.WriteLine("Please let us know if you would like to place a Gadget (G) or a Widget (W) order with us:");
             char orderType = Convert.ToChar(Console.ReadLine().ToUpper());
 
-            do
+            if (orderType == 'G')
             {
-                if (orderType == 'G')
-                {
-                    OrderFactory GadgetOrder = new GadgetOrderFactory();
-                    GadgetOrder.Build();
-                }
-                else if (orderType == 'W')
-                {
-                    OrderFactory WidgetOrder = new WidgetOrderFactory();
-                    WidgetOrder.Build();
-                }
-                else
-                {
-                    Console.WriteLine("You did not enter a valid choice. Please try again."); 
-                    break;
-                }
-            }while (orderType != 'G' || orderType != 'W');
+                Console.WriteLine(" ");
+                OrderFactory GadgetOrder = new GadgetOrderFactory();
+                GadgetOrder.Build();
+            }
+            else if (orderType == 'W')
+            {
+                Console.WriteLine(" ");
+                OrderFactory WidgetOrder = new WidgetOrderFactory();
+                WidgetOrder.Build();
+            }
+            else
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("You did not enter a valid option. Please start over.");
+                Console.WriteLine(" ");
+            }
         }
 
     }

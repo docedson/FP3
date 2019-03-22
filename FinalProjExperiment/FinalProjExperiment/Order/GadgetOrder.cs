@@ -89,6 +89,7 @@ namespace Order
                     }
 
                     Console.WriteLine("A Small Gadget is powered by the included Battery.");
+                    Console.WriteLine("- Each Small Gadget is constructed with 1 Small Widget ($15/each), 1 Medium Widget ($20/each), 1 Switch ($25/each), and 2 Buttons ($5/each).");
                     SetupSmallGadgets();
                     Console.WriteLine(" ");
                 }
@@ -151,6 +152,7 @@ namespace Order
                     }
 
                     Console.WriteLine("A Medium Gadget is powered by the included Solar Battery.");
+                    Console.WriteLine("- Each Medium Gadget is constructed with 2 Small Widget ($15/each), 2 Medium Widget ($20/each), 1 Large Widget ($25/each), 1 Switch ($25/each), and 2 Buttons ($5/each), and 3 Lights ($10/each).");
                     SetupMediumGadgets();
                     Console.WriteLine(" ");
                 }
@@ -212,6 +214,7 @@ namespace Order
                     }
 
                     Console.WriteLine("A Large Gadget is powered by the included Generator.");
+                    Console.WriteLine("- Each Large Gadget is constructed with 3 Small Widgets ($15/each), 6 Medium Widget ($20/each), 3 Large Widgets ($25/each), 2 Switches ($25/each), and 4 Buttons ($5/each), and 5 Lights ($10/each).");
                     SetupLargeGadgets();
                     Console.WriteLine(" ");
                 }
@@ -232,7 +235,7 @@ namespace Order
         private void SetupSmallGadgets()
         {
             Gadget gadget = null;
-            for (int ii = 0; ii < _iNumberOfSmallGadgets; ii++)
+            //for (int ii = 0; ii < _iNumberOfSmallGadgets; ii++)
             {
                 gadget = new SmallGadgets();
                 SetupGadget(gadget);
@@ -242,7 +245,7 @@ namespace Order
         private void SetupMediumGadgets()
         {
             Gadget gadget = null;
-            for (int ii = 0; ii < _iNumberOfMediumGadgets; ii++)
+            //for (int ii = 0; ii < _iNumberOfMediumGadgets; ii++)
             {
                 gadget = new MediumGadgets();
                 SetupGadget(gadget);
@@ -252,7 +255,7 @@ namespace Order
         private void SetupLargeGadgets()
         {
             Gadget gadget = null;
-            for (int ii = 0; ii < _iNumberOfLargeGadgets; ii++)
+            //for (int ii = 0; ii < _iNumberOfLargeGadgets; ii++)
             {
                 gadget = new LargeGadgets();
                 SetupGadget(gadget);

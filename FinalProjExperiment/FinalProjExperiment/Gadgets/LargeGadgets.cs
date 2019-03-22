@@ -15,6 +15,7 @@ namespace Gadgets
             _defaultSwitches = 2;
             _defaultLights = 5;
             Console.WriteLine("The selected Large Gadget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("It is made up of:");
         }
 
         public override void SetupWidgets()

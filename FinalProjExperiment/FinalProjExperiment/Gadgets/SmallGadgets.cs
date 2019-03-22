@@ -15,6 +15,7 @@ namespace Gadgets
             _defaultButtons = 2;
 
             Console.WriteLine("The selected Small Gadget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("It is made up of:");
         }
 
         public override void SetupWidgets()
@@ -53,9 +54,9 @@ namespace Gadgets
             if (!IsGadgetOrder)
             {
                 Console.WriteLine("There are " + _defaultButtons.ToString() + " Buttons available for a Small Gadget at " + ButtonPrice + " each.");
-                Console.Write("However, additional Buttons may be added to your order. " + "How many more would you like to add to your order?: ");
+                /*Console.Write("However, additional Buttons may be added to your order. " + "How many more would you like to add to your order?: ");
                 sButtons = Console.ReadLine();
-                Buttons = int.Parse(sButtons) + _defaultButtons;
+                Buttons = int.Parse(sButtons) + _defaultButtons;*/
             }
             Buttons = _defaultButtons;
         }
