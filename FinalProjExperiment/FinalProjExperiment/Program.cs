@@ -27,8 +27,8 @@ namespace WagCorp
             else if (orderType == 'W')
             {
                 Console.WriteLine(" ");
-                OrderFactory WidgetOrder = new WidgetOrderFactory();
-                WidgetOrder.Build();
+                OrderFactory2 WidgetOrder2 = new WidgetOrderFactory2();
+                WidgetOrder2.Build2();
             }
             else
             {
