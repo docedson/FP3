@@ -176,6 +176,7 @@ namespace Widgets2
 
         public virtual void SetupGears()
         {
+
         }
 
         public virtual void SetupSprings()
@@ -276,7 +277,7 @@ namespace Widgets2
             }
         }
 
-        public void GetPainted()
+        public void getPainted()
         {
 
             if (_painted.paint.Equals(Painted.Paint.painted) == true)
@@ -293,12 +294,14 @@ namespace Widgets2
             }
         }
 
-        public void GetWidgetOrderSummary2()
+        public void getWidgetOrderSummary2()
         {
             Console.WriteLine("This order has a total of  " + _Widgets2.Count.ToString() + " Widgets");
 
             foreach (IWidgets2 wi in _Widgets2)
             {
+                ((Widget2)wi).getWidgetOrderSummary2();
+                ((Widget2)wi).getPainted();
                 _iTotalGears += ((Widget2)wi).Gears;
                 _iTotalSprings += ((Widget2)wi).Springs;
                 _iTotalLevers += ((Widget2)wi).Levers;

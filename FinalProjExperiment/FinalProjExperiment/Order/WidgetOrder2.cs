@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Widgets2;
+using Accessories2;
 
 namespace Order
 {
@@ -263,6 +264,10 @@ namespace Order
             int iTotalWidSprings2 = 0;
             int iTotalWidLevers2 = 0;
 
+            int iTotalGears = 0;
+            int iTotalSprings = 0;
+            int iTotalLevers = 0;
+
             float fTotalOrderPrice = 0.0f;
 
             Console.WriteLine();
@@ -273,6 +278,10 @@ namespace Order
                 iTotalWidGears2 += iWidGears2;
                 iTotalWidSprings2 += iWidSprings2;
                 iTotalWidLevers2 += iWidLevers2;
+
+                iTotalGears += ((Widget2)w).Gears;
+                iTotalSprings += ((Widget2)w).Springs;
+                iTotalLevers += ((Widget2)w).Levers;
 
                 fTotalOrderPrice += ((Widget2)w).GetWidgetOrderTotalPrice();
             }
@@ -289,7 +298,7 @@ namespace Order
             Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
             Console.WriteLine(" ");
 
-            Console.WriteLine("Total Gears    : {0, 5}", iTotalWidGears2.ToString());
+            Console.WriteLine("Total Gears    : {0, 5}", iTotalGears.ToString());
             Console.WriteLine("Total Springs  : {0, 5}", iTotalWidSprings2.ToString());
             Console.WriteLine("Total Levers   : {0, 5}", iTotalWidLevers2.ToString());
             Console.WriteLine("----------------------------------------------------");

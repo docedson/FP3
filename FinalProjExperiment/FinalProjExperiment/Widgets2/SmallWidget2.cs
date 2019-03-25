@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Accessories2;
 
 namespace Widgets2
 {
@@ -11,20 +12,21 @@ namespace Widgets2
     {
         public SmallWidget2() : base(50.00f)
         {
-            _defaultGears = 2;
+            /*_defaultGears = 2;
             _defaultSprings = 3;
-            _defaultLevers = 1;
+            _defaultLevers = 1;*/
 
             Console.WriteLine("The selected Small Widget is " + Price.ToString("C2") + " each");
         }
 
         public override void SetupGears()
         {
+            int SGears = 2;
             if (!IsWidgetOrder)
             {
-                Console.WriteLine("There are " + _defaultGears.ToString() + " Switches available for a Small Gadget at " + GearsPrice + " each.");
+                Console.WriteLine("There are " + SGears/*_defaultGears*/.ToString() + " Switches available for a Small Gadget at " + GearsPrice + " each.");
             }
-            Gears = _defaultGears;
+            Gears = SGears;
         }
 
         public override void SetupSprings()
