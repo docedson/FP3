@@ -84,5 +84,50 @@ namespace Widgets2
         {
             throw new NotImplementedException();
         }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override void SetupWidgets()
+        {
+            base.SetupWidgets();
+        }
+
+        public override void SetupLevers()
+        {
+            base.SetupLevers();
+        }
+
+        public override void SetupGears()
+        {
+            base.SetupGears();
+        }
+
+        public override void SetupSprings()
+        {
+            base.SetupSprings();
+        }
+
+        public override void SetupSerialNumber()
+        {
+            base.SetupSerialNumber();
+        }
+
+        /*internal override void GetWidgetOrderSummary(out int iWidgets, out int iWidGears, out int iWidSprings, out int iWidLevers)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }

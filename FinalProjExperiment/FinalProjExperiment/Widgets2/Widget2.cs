@@ -3,20 +3,21 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Accessories;
 using Accessories2;
+using Widgets;
 using Widgets2;
-
 
 namespace Widgets2
 {
     public abstract class Widget2 : IWidgets2
     {
-        private ArrayList _Widgets2 = new ArrayList();
+        //private ArrayList _Widgets = new ArrayList();
         private Gears _Gears;
         private Springs _Springs;
         private Levers _Levers;
         private float _Price;
-        private Painted2 _Painted2;
+        private Painted _painted;
 
         private int _iTotalGears = 0;
         private int _iTotalSprings = 0;
@@ -36,7 +37,11 @@ namespace Widgets2
             _Gears = new Gears();
             _Springs = new Springs();
             _Levers = new Levers();
-            _Painted2 = new Painted2();
+            _painted = new Painted();
+        }
+
+        public Widget2()
+        {
         }
 
         public float Price
@@ -44,15 +49,15 @@ namespace Widgets2
             get { return _Price; }
         }
 
-        public int Springs
+        public int Gears
         {
             get
             {
-                return _Springs.Quantity;
+                return _Gears.Quantity;
             }
             set
             {
-                _Springs.Quantity = value;
+                _Gears.Quantity = value;
             }
         }
 
@@ -79,29 +84,29 @@ namespace Widgets2
             }
         }
 
-        protected string SpringsPrice
-        {
-            get
-            {
-                return _Springs.Price.ToString("C2");
-            }
-        }
-        public int Gears
-        {
-            get
-            {
-                return _Gears.Quantity;
-            }
-            set
-            {
-                _Gears.Quantity = value;
-            }
-        }
         protected string GearsPrice
         {
             get
             {
                 return _Gears.Price.ToString("C2");
+            }
+        }
+        public int Springs
+        {
+            get
+            {
+                return _Springs.Quantity;
+            }
+            set
+            {
+                _Springs.Quantity = value;
+            }
+        }
+        protected string SpringsPrice
+        {
+            get
+            {
+                return _Springs.Price.ToString("C2");
             }
         }
         public int Levers
@@ -125,16 +130,16 @@ namespace Widgets2
 
         public void AddSmallWidgets(int iNum)
         {
-            for (int ii = 0; ii < iNum; ii++)
+            //for (int ii = 0; ii < iNum; ii++)
             {
-                SmallWidgets2 sw = new SmallWidgets2();
+                SmallWidget2 sw = new SmallWidget2();
                 AddWidget(sw);
             }
         }
 
         public void AddMediumWidgets(int iNum)
         {
-            for (int ii = 0; ii < iNum; ii++)
+            //for (int ii = 0; ii < iNum; ii++)
             {
                 MediumWidgets2 mw = new MediumWidgets2();
                 AddWidget(mw);
@@ -143,7 +148,7 @@ namespace Widgets2
 
         public void AddLargeWidgets(int iNum)
         {
-            for (int ii = 0; ii < iNum; ii++)
+            //for (int ii = 0; ii < iNum; ii++)
             {
                 LargeWidgets2 lw = new LargeWidgets2();
                 AddWidget(lw);
@@ -152,149 +157,159 @@ namespace Widgets2
 
         private void AddWidget(IWidgets2 iw)
         {
-            _Widgets2.Add(iw);
+            //_Widgets2.Add(iw);
             iw.SetupGears(_IsWidgetOrder);
             iw.SetupLevers(_IsWidgetOrder);
             iw.SetupSprings(_IsWidgetOrder);
             if (!_IsWidgetOrder)
             {
-                ((Widget2)iw).SetupPainted2();
+                ((Widget)iw).SetupPainted();
             }
             else
             {
-                ((Widget2)iw).SetupPainted2Default(_sDefaultWidgetColor);
+                ((Widget)iw).SetupPaintedDefault(_sDefaultWidgetColor);
             }
         }
 
-        public virtual void SetupGears(bool _IsWidgetOrder)
+        public virtual void SetupWidgets()
         {
         }
 
-        public virtual void SetupLevers(bool _IsWidgetOrder)
+        public virtual void SetupLevers()
         {
         }
 
-        public virtual void SetupSprings(bool _IsWidgetOrder)
+        public virtual void SetupGears()
         {
         }
 
-        public void SetupPainted2Default(string sColor)
+        public virtual void SetupSprings()
         {
-            _Painted2.paint = Painted2.Paint.Painted2;
+
+        }
+
+        public virtual void SetupSerialNumber()
+        {
+
+        }
+
+        public void SetupPaintedDefault(string sColor)
+        {
+            _painted.paint = Painted.Paint.painted;
             switch (sColor)
             {
                 case "Black":
                 case "black":
-                    _Painted2.color = Painted2.Colors.Black;
+                    _painted.color = Painted.Colors.Black;
                     break;
                 case "Green":
                 case "green":
-                    _Painted2.color = Painted2.Colors.Green;
+                    _painted.color = Painted.Colors.Green;
                     break;
                 case "Brown":
                 case "brown":
-                    _Painted2.color = Painted2.Colors.Brown;
+                    _painted.color = Painted.Colors.Brown;
                     break;
                 case "Blue":
                 case "blue":
-                    _Painted2.color = Painted2.Colors.Blue;
+                    _painted.color = Painted.Colors.Blue;
                     break;
                 case "Yellow":
                 case "yellow":
-                    _Painted2.color = Painted2.Colors.Yellow;
+                    _painted.color = Painted.Colors.Yellow;
                     break;
                 case "Violet":
                 case "violet":
-                    _Painted2.color = Painted2.Colors.Violet;
+                    _painted.color = Painted.Colors.Violet;
                     break;
                 case "Red":
                 case "red":
-                    _Painted2.color = Painted2.Colors.Red;
+                    _painted.color = Painted.Colors.Red;
                     break;
                 default:
-                    _Painted2.color = Painted2.Colors.Gold;
+                    _painted.color = Painted.Colors.Gold;
                     break;
             }
         }
 
-        public void SetupPainted2()
+        public void SetupPainted()
         {
-            Console.Write("Choose an option for the Widget to be decorated: (1) Painted2, (2) Chrome Plated, (3) Plain: ");
-            int sPainted2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Choose an option for the Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
+            int sPainted = Convert.ToInt32(Console.ReadLine());
 
-            switch (sPainted2)
+            switch (sPainted)
             {
                 case 1:
-                    _Painted2.paint = Painted2.Paint.Painted2;
+                    _painted.paint = Painted.Paint.painted;
                     Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                     int sColor = Convert.ToInt32(Console.ReadLine());
 
                     switch (sColor)
                     {
                         case 1:
-                            _Painted2.color = Painted2.Colors.Black;
+                            _painted.color = Painted.Colors.Black;
                             break;
                         case 2:
-                            _Painted2.color = Painted2.Colors.Green;
+                            _painted.color = Painted.Colors.Green;
                             break;
                         case 3:
-                            _Painted2.color = Painted2.Colors.Brown;
+                            _painted.color = Painted.Colors.Brown;
                             break;
                         case 4:
-                            _Painted2.color = Painted2.Colors.Blue;
+                            _painted.color = Painted.Colors.Blue;
                             break;
                         case 5:
-                            _Painted2.color = Painted2.Colors.Yellow;
+                            _painted.color = Painted.Colors.Yellow;
                             break;
                         case 6:
-                            _Painted2.color = Painted2.Colors.Violet;
+                            _painted.color = Painted.Colors.Violet;
                             break;
                         case 7:
-                            _Painted2.color = Painted2.Colors.Red;
+                            _painted.color = Painted.Colors.Red;
                             break;
                         case 8:
-                            _Painted2.color = Painted2.Colors.Gold;
+                            _painted.color = Painted.Colors.Gold;
                             break;
                     }
                     break;
                 case 2:
-                    _Painted2.paint = Painted2.Paint.plated;
+                    _painted.paint = Painted.Paint.plated;
                     break;
                 case 3:
-                    _Painted2.paint = Painted2.Paint.plain;
+                    _painted.paint = Painted.Paint.plain;
                     break;
             }
         }
 
-        public void GetPainted2()
+        public void GetPainted()
         {
 
-            if (_Painted2.paint.Equals(Painted2.Paint.Painted2) == true)
+            if (_painted.paint.Equals(Painted.Paint.painted) == true)
             {
-                Console.WriteLine("The Widget is " + _Painted2.paint.ToString() + " " + _Painted2.color.ToString());
+                Console.WriteLine("The Widget is " + _painted.paint.ToString() + " " + _painted.color.ToString());
             }
-            else if (_Painted2.paint.Equals(Painted2.Paint.plated) == true)
+            else if (_painted.paint.Equals(Painted.Paint.plated) == true)
             {
-                Console.WriteLine("The Widget is " + _Painted2.paint.ToString() + " and has a surcharge of " + _Painted2.GetTotalPrice().ToString("C2"));
+                Console.WriteLine("The Widget is " + _painted.paint.ToString() + " and has a surcharge of " + _painted.GetTotalPrice().ToString("C2"));
             }
             else
             {
-                Console.WriteLine("The Widget is " + _Painted2.paint.ToString());
+                Console.WriteLine("The Widget is " + _painted.paint.ToString());
             }
         }
 
-        public void GetWidgetOrderSummary()
+        /*public void GetWidgetOrderSummary2()
         {
             Console.WriteLine("This order has a total of  " + _Widgets2.Count.ToString() + " Widgets");
 
-            foreach (IWidgets2 wi in _Widgets)
+            foreach (IWidgets2 wi in _Widgets2)
             {
-                ((Widget2)wi).getWidgetOrderSummary();
-                ((Widget2)wi).getPainted2();
+                ((Widget2)wi).getWidgetOrderSummary2();
+                ((Widget2)wi).getPainted();
                 _fTotalWidgetPrice += ((Widget2)wi).getWidgetPrice();
-                _iTotalGears += ((Widget2)wi).Gears;
-                _iTotalSprings += ((Widget2)wi).Springs;
-                _iTotalLevers += ((Widget2)wi).Levers;
+                _iTotalGears2 += ((Widget2)wi).Gears;
+                _iTotalSprings2 += ((Widget2)wi).Springs;
+                _iTotalLevers2 += ((Widget2)wi).Levers;
             }
 
             Console.WriteLine("This order includes the following items: ");
@@ -302,39 +317,50 @@ namespace Widgets2
             Console.WriteLine("- " + _iTotalLevers.ToString() + " Levers");
             Console.WriteLine("- " + _iTotalSprings.ToString() + " Springs");
             Console.WriteLine("Subtotal Widget Price       : \t{0,20}", _fTotalWidgetPrice.ToString("C2"));
-        }
+        }*/
 
-        public void GetWidgetOrderSummary(out int iTotalWidgets, out int iTotalGears, out int iTotalSprings, out int iTotalLevers)
+        /*public void GetWidgetOrderSummary(out int iTotalWidgets, out int iTotalGears, out int iTotalSprings, out int iTotalLevers)
         {
             iTotalGears = 0;
             iTotalSprings = 0;
             iTotalLevers = 0;
-            iTotalWidgets = _Widgets2.Count;
+            //iTotalWidgets = _Widgets2.Count;
 
-            foreach (IWidgets2 wi in _Widgets2)
+            /*foreach (IWidgets2 wi in _Widgets2)
             {
-                _fTotalWidgetPrice += ((Widget2)wi).getWidgetPrice();
-                iTotalGears += ((Widget2)wi).Gears;
-                iTotalSprings += ((Widget2)wi).Springs;
-                iTotalLevers += ((Widget2)wi).Levers;
+                _fTotalWidgetPrice += ((Widget)wi).getWidgetPrice();
+                iTotalGears += ((Widget)wi).Gears;
+                iTotalSprings += ((Widget)wi).Springs;
+                iTotalLevers += ((Widget)wi).Levers;
             }
-        }
+        }*/
 
         public float GetWidgetOrderTotalPrice()
         {
-            float fTotalWWidgetPrice = Price + _Painted2.GetTotalPrice();
+            float fTotalWWidgetPrice = Price + _painted.GetTotalPrice();
             if (!_IsWidgetOrder)
             {
-                Console.WriteLine("Subtotal Gadget Price       : \t{0,20}", fTotalWWidgetPrice.ToString("C2"));
+                Console.WriteLine("Subtotal Widget Price       : \t{0,20}", fTotalWWidgetPrice.ToString("C2"));
             }
 
-            return fTotalWWidgetPrice + +_fTotalWidgetPrice;
+            return fTotalWWidgetPrice /*+ +_fTotalWidgetPrice*/;
         }
 
         public abstract void SetupWidgets2();
+        public abstract void SetupGears(bool _IsWidgetOrder);
+        public abstract void SetupSprings(bool _IsWidgetOrder);
+        public abstract void SetupLevers(bool _IsWidgetOrder);
 
-        private class Painted2
+        /*public static implicit operator Widget2(SmallWidget v)
         {
+            throw new NotImplementedException();
         }
+
+        public static implicit operator Widget2(MediumWidget v)
+        {
+            throw new NotImplementedException();
+        }*/
+
+        //internal abstract void GetWidgetOrderSummary(out int iWidgets, out int iWidGears, out int iWidSprings, out int iWidLevers);
     }
 }

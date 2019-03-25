@@ -49,7 +49,7 @@ namespace Gadgets
 
         public override void SetupButtons()
         {
-            String sButtons;
+            //String sButtons;
 
             if (!IsGadgetOrder)
             {

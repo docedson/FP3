@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Widgets;
+//using Widgets;
+using Widgets2;
+using Accessories2;
 
 namespace Order
 {
@@ -37,6 +39,7 @@ namespace Order
                 Console.Write("How many Small Widgets would you like?: ");
                 sResponse = Console.ReadLine();
                 _iNumberOfSmallWidgets = int.Parse(sResponse);
+
                 if (_iNumberOfSmallWidgets > 0)
                 {
                     Console.Write("Choose an option for the Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
@@ -214,86 +217,91 @@ namespace Order
 
         private void SetupSmallWidgets()
         {
-            Widget widget = null;
-            for (int ii = 0; ii < _iNumberOfSmallWidgets; ii++)
+            Widget2 widget2 = null;
+            //for (int ii = 0; ii < _iNumberOfSmallWidgets; ii++)
             {
-                widget = new SmallWidget();
-                SetupWidget(widget);
+                widget2 = new SmallWidget2();
+                SetupWidgets2(widget2);
             }
         }
 
         private void SetupMediumWidgets()
         {
-            Widget widget = null;
+            Widget2 widget2 = null;
             for (int ii = 0; ii < _iNumberOfMediumWidgets; ii++)
             {
-                widget = new MediumWidgets();
-                SetupWidget(widget);
+                widget2 = new MediumWidgets2();
+                SetupWidgets2(widget2);
             }
         }
 
-        private void SetupLargeGadgets()
+        /*private void SetupWidget(Widget2 widget2)
         {
-            Widget widget = null;
+            throw new NotImplementedException();
+        }*/
+
+        private void SetupLargeWidgets()
+        {
+            Widget2 widget2 = null;
             for (int ii = 0; ii < _iNumberOfLargeWidgets; ii++)
             {
-                widget = new LargeWidgets();
-                SetupWidgett(widget);
+                widget2 = new LargeWidgets2();
+                SetupWidgets2(widget2);
             }
         }
 
-        private void SetupWidget(Widget widget)
+        private void SetupWidgets2(Widget2 widget2)
         {
-            widget.IsWidgetOrder = true;
-            widget.SetupPaintedDefault(_sColorDefaultWidget1);
-            widget.SetupPaintedDefault(_sColorDefaultWidget2);
-            widget.SetupPaintedDefault(_sColorDefaultWidget3);
+            widget2.IsWidgetOrder = true;
+            widget2.SetupPaintedDefault(_sColorDefaultWidget1);
+            widget2.SetupPaintedDefault(_sColorDefaultWidget2);
+            widget2.SetupPaintedDefault(_sColorDefaultWidget3);
             //widget.SetupWidgets();
-            widget.SetupGears();
-            widget.SetupSprings();
-            widget.SetupLevers();
-            _Widgets.Add(widget);
+            widget2.SetupGears();
+            widget2.SetupSprings();
+            widget2.SetupLevers();
+            _Widgets.Add(widget2);
         }
 
         private void GetOrderSummary()
         {
-            int iWidGears = 0;
+            /*int iWidGears = 0;
             int iWidSprings = 0;
             int iWidLevers = 0;
-            int iWidgets = 0;
+            int iWidgets = 0;*/
 
-            int iTotalWidGears = 0;
-            int iTotalWidSprings = 0;
-            int iTotalWidLevers = 0;
-            int iTotalWidgets = 0;
+            int iTotalWidGears2 = 0;
+            int iTotalWidSprings2 = 0;
+            int iTotalWidLevers2 = 0;
+            //int iTotalWidgets = 0;
 
             float fTotalOrderPrice = 0.0f;
 
             Console.WriteLine();
 
-            foreach (Widget w in _Widgets)
+            /*foreach (Widget2 w in _Widgets)
             {
-                ((Widget)w).GetWidgetOrderSummary(out iWidgets, out iWidGears, out iWidSprings, out iWidLevers);
-                iTotalWidGears += iWidGears;
-                iTotalWidSprings += iWidSprings;
-                iTotalWidLevers += iWidLevers;
-                iTotalWidgets += iWidgets;
+                ((Widget2)w).GetWidgetOrderSummary(out iWidgets, out iWidGears, out iWidSprings, out iWidLevers);
+                iTotalWidGears2 += iWidGears2;
+                iTotalWidSprings2 += iWidSprings2;
+                iTotalWidLevers2 += iWidLevers2;
+                //iTotalWidgets += iWidgets;
 
-                fTotalOrderPrice += ((Widget)w).GetWidgetOrderTotalPrice();
-            }
+                fTotalOrderPrice += ((Widget2)w).GetWidgetOrderTotalPrice();
+            }*/
 
             Console.WriteLine("-------Order Summary-------");
 
-            Console.WriteLine("Total Small Widgets   : {0, 5} {1, 5}", (_iNumberOfSmallWidgets).ToString(), " that are " + _sColorDefaultGadget1);
+            Console.WriteLine("Total Small Widgets   : {0, 5} {1, 5}", (_iNumberOfSmallWidgets).ToString(), " that are " + _sColorDefaultWidget1);
             //Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ", (SerailNumSmallG));
-            Console.WriteLine("Total Medium Widgets  : {0, 5} {1, 5}", (_iNumberOfMediumWidgets).ToString(), " that are " + _sColorDefaultGadget2);
+            Console.WriteLine("Total Medium Widgets  : {0, 5} {1, 5}", (_iNumberOfMediumWidgets).ToString(), " that are " + _sColorDefaultWidget2);
             //Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ", (SerailNumMediumG));
-            Console.WriteLine("Total Large Widgets   : {0, 5} {1, 5}", (_iNumberOfLargeWidgets).ToString(), " that are " + _sColorDefaultGadget3);
+            Console.WriteLine("Total Large Widgets   : {0, 5} {1, 5}", (_iNumberOfLargeWidgets).ToString(), " that are " + _sColorDefaultWidget3);
             //Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ", (SerailNumLargeG));
 
-            Console.WriteLine("Total Gears    : {0, 5}", iTotalWidGears.ToString());
-            Console.WriteLine("Total Springs  : {0, 5}", iTotalWidSprings.ToString());
-            Console.WriteLine("Total Levers   : {0, 5}", iTotalWidLevers.ToString());
+            Console.WriteLine("Total Gears    : {0, 5}", iTotalWidGears2.ToString());
+            Console.WriteLine("Total Springs  : {0, 5}", iTotalWidSprings2.ToString());
+            Console.WriteLine("Total Levers   : {0, 5}", iTotalWidLevers2.ToString());
             Console.WriteLine("----------------------------------------------------");
 
             Console.WriteLine("Sub Total Price              : {0, 20}", fTotalOrderPrice.ToString("C2"));

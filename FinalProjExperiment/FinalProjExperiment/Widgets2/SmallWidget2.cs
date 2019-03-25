@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Widgets2
 {
-    public class SmallWidgets2 : Widget2, IWidgets2
+    public class SmallWidget2 : Widget2, IWidgets2
     {
-        public SmallWidgets2() : base(50.00f)
+        public SmallWidget2() : base(50.00f)
         {
             _defaultGears = 2;
             _defaultSprings = 3;
@@ -19,9 +19,9 @@ namespace Widgets2
             //Console.WriteLine("It is made up of:");
         }
 
-        /*public override void SetupWidgets()
+        /*public override void SetupWidgets2()
         {
-            if (!IsGadgetOrder)
+            if (!IsWidgetOrder)
             {
                 Console.WriteLine("A Small Gadget includes 1 Small Widget and 1 Medium Widget standard.");
             }
@@ -30,59 +30,82 @@ namespace Widgets2
             AddMediumWidgets(1);
         }*/
 
-        public override void SetupGears(bool _IsWidgetOrder)
+        public override void SetupGears()
         {
-            String sGears;
             if (!IsWidgetOrder)
             {
-                Console.WriteLine("There are " + _defaultGears.ToString() + " Gears available for a Small Widget at " + GearsPrice + " each.");
-                Console.Write("However, additional Gears may be added to your order. " + "How many more would you like to add to your order?: ");
-                sGears = Console.ReadLine();
-                Gears = int.Parse(sGears) + _defaultGears;
+                Console.WriteLine("There are " + _defaultGears.ToString() + " Switches available for a Small Gadget at " + GearsPrice + " each.");
             }
-            else
-            {
-                Gears = _defaultGears;
-            }
+            Gears = _defaultGears;
         }
 
-        public override void SetupSprings(bool _IsWidgetOrder)
+        public override void SetupSprings()
         {
-            String sSprings;
-
             if (!IsWidgetOrder)
             {
-                Console.WriteLine("There are " + _defaultSprings.ToString() + " Springs available for a Small Widget at " + SpringsPrice + " each.");
-                Console.Write("However, additional Springs may be added to your order. How many more would you like to add to your order?: ");
-                sSprings = Console.ReadLine();
-                Springs = int.Parse(sSprings) + _defaultSprings;
+                Console.WriteLine("There are " + _defaultSprings.ToString() + " Switches available for a Small Gadget at " + SpringsPrice + " each.");
             }
-            else
-            {
-                Springs = _defaultSprings;
-            }
+            Springs = _defaultSprings;
         }
 
-        public override void SetupLevers(bool _IsWidgetOrder)
+        public override void SetupLevers()
         {
-            String sLevers;
 
             if (!IsWidgetOrder)
             {
-                Console.WriteLine("There are " + _defaultLevers.ToString() + " Buttons available for a Small Widget for " + LeversPrice + " each.");
-                Console.Write("However, additional Levers may be added to your order. How many more would you like to add to your order?: ");
-                sLevers = Console.ReadLine();
-                Levers = int.Parse(sLevers) + _defaultLevers;
+                Console.WriteLine("There are " + _defaultLevers.ToString() + " Buttons available for a Small Gadget at " + LeversPrice + " each.");
             }
-            else
-            {
-                Levers = _defaultLevers;
-            }
+            Levers = _defaultLevers;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override void SetupWidgets()
+        {
+            base.SetupWidgets();
+        }
+
+        public override void SetupSerialNumber()
+        {
+            base.SetupSerialNumber();
         }
 
         public override void SetupWidgets2()
         {
             throw new NotImplementedException();
         }
+
+        public override void SetupGears(bool _IsWidgetOrder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetupSprings(bool _IsWidgetOrder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetupLevers(bool _IsWidgetOrder)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*internal override void GetWidgetOrderSummary(out int iWidgets, out int iWidGears, out int iWidSprings, out int iWidLevers)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }

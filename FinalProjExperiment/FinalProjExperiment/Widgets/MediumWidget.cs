@@ -37,5 +37,35 @@ namespace Widgets
             }
             Levers = 3;
         }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        internal override void SetupGears()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void SetupSprings()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void SetupLevers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

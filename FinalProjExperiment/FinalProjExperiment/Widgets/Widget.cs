@@ -14,6 +14,7 @@ namespace Widgets
         private int _iLevers;
         private Painted _painted;
         private float _Price;
+        internal bool IsWidgetOrder;
 
         public Widget(float Price)
         {
@@ -210,5 +211,9 @@ namespace Widgets
 
             return fTotalPrice;
         }
+
+        internal abstract void SetupGears();
+        internal abstract void SetupSprings();
+        internal abstract void SetupLevers();
     }
 }
