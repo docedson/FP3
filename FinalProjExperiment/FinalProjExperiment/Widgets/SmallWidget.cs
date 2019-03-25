@@ -10,7 +10,6 @@ namespace Widgets
     {
         public SmallWidget() : base(15.00f)
         {
-            //Console.WriteLine("- Small Widgets for " + Price.ToString("C2") + " each");
         }
         public override void SetupGears(bool IsGadgetOrder)
         {

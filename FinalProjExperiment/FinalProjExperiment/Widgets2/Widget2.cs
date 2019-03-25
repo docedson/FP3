@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Accessories;
 using Accessories2;
-using Widgets;
 using Widgets2;
 
 namespace Widgets2
@@ -130,7 +129,6 @@ namespace Widgets2
 
         public void AddSmallWidgets(int iNum)
         {
-            //for (int ii = 0; ii < iNum; ii++)
             {
                 SmallWidget2 sw = new SmallWidget2();
                 AddWidget(sw);
@@ -139,16 +137,14 @@ namespace Widgets2
 
         public void AddMediumWidgets(int iNum)
         {
-            //for (int ii = 0; ii < iNum; ii++)
             {
-                MediumWidgets2 mw = new MediumWidgets2();
+                MediumWidget2 mw = new MediumWidget2();
                 AddWidget(mw);
             }
         }
 
         public void AddLargeWidgets(int iNum)
         {
-            //for (int ii = 0; ii < iNum; ii++)
             {
                 LargeWidgets2 lw = new LargeWidgets2();
                 AddWidget(lw);
@@ -157,17 +153,16 @@ namespace Widgets2
 
         private void AddWidget(IWidgets2 iw)
         {
-            //_Widgets2.Add(iw);
             iw.SetupGears(_IsWidgetOrder);
             iw.SetupLevers(_IsWidgetOrder);
             iw.SetupSprings(_IsWidgetOrder);
             if (!_IsWidgetOrder)
             {
-                ((Widget)iw).SetupPainted();
+                ((Widget2)iw).SetupPainted();
             }
             else
             {
-                ((Widget)iw).SetupPaintedDefault(_sDefaultWidgetColor);
+                ((Widget2)iw).SetupPaintedDefault(_sDefaultWidgetColor);
             }
         }
 
@@ -304,9 +299,6 @@ namespace Widgets2
 
             foreach (IWidgets2 wi in _Widgets2)
             {
-                //((Widget2)wi).getWidgetOrderSummary2();
-                //((Widget2)wi).getPainted();
-                //_fTotalWidgetPrice += ((Widget2)wi).getWidgetPrice();
                 _iTotalGears += ((Widget2)wi).Gears;
                 _iTotalSprings += ((Widget2)wi).Springs;
                 _iTotalLevers += ((Widget2)wi).Levers;
@@ -319,19 +311,17 @@ namespace Widgets2
             Console.WriteLine("Subtotal Widget Price       : \t{0,20}", _fTotalWidgetPrice.ToString("C2"));
         }
 
-        public void GetWidgetOrderSummary2(out int iTotalWidgets, out int iTotalGears, out int iTotalSprings, out int iTotalLevers)
+        public void GetWidgetOrderSummary2(out int iTotalGears, out int iTotalSprings, out int iTotalLevers)
         {
             iTotalGears = 0;
             iTotalSprings = 0;
             iTotalLevers = 0;
-            iTotalWidgets = _Widgets2.Count;
 
             foreach (IWidgets2 wi in _Widgets2)
             {
-                _fTotalWidgetPrice += ((Widget)wi).getWidgetPrice();
-                iTotalGears += ((Widget)wi).Gears;
-                iTotalSprings += ((Widget)wi).Springs;
-                iTotalLevers += ((Widget)wi).Levers;
+                iTotalGears += ((Widget2)wi).Gears;
+                iTotalSprings += ((Widget2)wi).Springs;
+                iTotalLevers += ((Widget2)wi).Levers;
             }
         }
 
@@ -342,7 +332,6 @@ namespace Widgets2
             {
                 Console.WriteLine("Subtotal Widget Price       : \t{0,20}", fTotalWWidgetPrice.ToString("C2"));
             }
-
             return fTotalWWidgetPrice;
         }
 
@@ -350,6 +339,5 @@ namespace Widgets2
         public abstract void SetupGears(bool _IsWidgetOrder);
         public abstract void SetupSprings(bool _IsWidgetOrder);
         public abstract void SetupLevers(bool _IsWidgetOrder);
-        //internal abstract void GetWidgetOrderSummary2(out int iWidgets2, out int iWidGears2, out int iWidSprings2, out int iWidLevers2);
     }
 }

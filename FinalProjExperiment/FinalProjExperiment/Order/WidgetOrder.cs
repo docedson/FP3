@@ -55,7 +55,6 @@ namespace Order
                     gadget.SetupButtons();
                     gadget.SetupLights();
                     gadget.SetupSerialNumber();
-                    //gadget.SetupPower();
                     Gadgets.Add(gadget);
                 }
 
@@ -86,7 +85,7 @@ namespace Order
                 {
                     Console.WriteLine("- Large Gadget for " + ((Gadget)g).Price.ToString("C2"));
                 }
-                //Console.WriteLine(" ");
+
                 Console.WriteLine("Which includes the following items: ");
                 Console.WriteLine("- " + ((Gadget)g).Buttons + " Buttons.");
                 Console.WriteLine("- " + ((Gadget)g).Lights + " Lights.");

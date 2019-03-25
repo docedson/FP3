@@ -12,6 +12,5 @@ namespace Widgets2
         void SetupGears(bool _IsWidgetOrder);
         void SetupSprings(bool _IsWidgetOrder);
         void SetupLevers(bool _IsWidgetOrder);
-        //void SetupSerialNumber();
     }
 }

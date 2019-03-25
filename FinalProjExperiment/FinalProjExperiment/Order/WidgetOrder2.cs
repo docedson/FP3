@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Widgets;
 using Widgets2;
-//using Accessories2;
 
 namespace Order
 {
@@ -219,7 +217,6 @@ namespace Order
         private void SetupSmallWidgets()
         {
             Widget2 widget2 = null;
-            //for (int ii = 0; ii < _iNumberOfSmallWidgets; ii++)
             {
                 widget2 = new SmallWidget2();
                 SetupWidgets2(widget2);
@@ -229,22 +226,15 @@ namespace Order
         private void SetupMediumWidgets()
         {
             Widget2 widget2 = null;
-            //for (int ii = 0; ii < _iNumberOfMediumWidgets; ii++)
             {
-                widget2 = new MediumWidgets2();
+                widget2 = new MediumWidget2();
                 SetupWidgets2(widget2);
             }
         }
 
-        /*private void SetupWidget(Widget2 widget2)
-        {
-            throw new NotImplementedException();
-        }*/
-
         private void SetupLargeWidgets()
         {
             Widget2 widget2 = null;
-            //for (int ii = 0; ii < _iNumberOfLargeWidgets; ii++)
             {
                 widget2 = new LargeWidgets2();
                 SetupWidgets2(widget2);
@@ -257,7 +247,6 @@ namespace Order
             widget2.SetupPaintedDefault(_sColorDefaultWidget1);
             widget2.SetupPaintedDefault(_sColorDefaultWidget2);
             widget2.SetupPaintedDefault(_sColorDefaultWidget3);
-            //widget.SetupWidgets();
             widget2.SetupGears();
             widget2.SetupSprings();
             widget2.SetupLevers();
@@ -269,12 +258,10 @@ namespace Order
             int iWidGears2 = 0;
             int iWidSprings2 = 0;
             int iWidLevers2 = 0;
-            int iWidgets2 = 0;
 
             int iTotalWidGears2 = 0;
             int iTotalWidSprings2 = 0;
             int iTotalWidLevers2 = 0;
-            int iTotalWidgets = 0;
 
             float fTotalOrderPrice = 0.0f;
 
@@ -282,11 +269,10 @@ namespace Order
 
             foreach (Widget2 w in _Widgets2)
             {
-                ((Widget2)w).GetWidgetOrderSummary2(out iWidgets2, out iWidGears2, out iWidSprings2, out iWidLevers2);
+                ((Widget2)w).GetWidgetOrderSummary2(out iWidGears2, out iWidSprings2, out iWidLevers2);
                 iTotalWidGears2 += iWidGears2;
                 iTotalWidSprings2 += iWidSprings2;
                 iTotalWidLevers2 += iWidLevers2;
-                //iTotalWidgets += iWidgets;
 
                 fTotalOrderPrice += ((Widget2)w).GetWidgetOrderTotalPrice();
             }
@@ -294,11 +280,14 @@ namespace Order
             Console.WriteLine("-------Order Summary-------");
 
             Console.WriteLine("Total Small Widgets   : {0, 5} {1, 5}", (_iNumberOfSmallWidgets2).ToString(), " that are " + _sColorDefaultWidget1);
-            //Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ", (SerailNumSmallG));
+            Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ");
+            Console.WriteLine(" ");
             Console.WriteLine("Total Medium Widgets  : {0, 5} {1, 5}", (_iNumberOfMediumWidgets2).ToString(), " that are " + _sColorDefaultWidget2);
-            //Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ", (SerailNumMediumG));
+            Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ");
+            Console.WriteLine(" ");
             Console.WriteLine("Total Large Widgets   : {0, 5} {1, 5}", (_iNumberOfLargeWidgets2).ToString(), " that are " + _sColorDefaultWidget3);
-            //Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ", (SerailNumLargeG));
+            Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
+            Console.WriteLine(" ");
 
             Console.WriteLine("Total Gears    : {0, 5}", iTotalWidGears2.ToString());
             Console.WriteLine("Total Springs  : {0, 5}", iTotalWidSprings2.ToString());

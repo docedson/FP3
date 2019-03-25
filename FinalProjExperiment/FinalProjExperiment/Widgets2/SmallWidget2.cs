@@ -16,19 +16,7 @@ namespace Widgets2
             _defaultLevers = 1;
 
             Console.WriteLine("The selected Small Widget is " + Price.ToString("C2") + " each");
-            //Console.WriteLine("It is made up of:");
         }
-
-        /*public override void SetupWidgets2()
-        {
-            if (!IsWidgetOrder)
-            {
-                Console.WriteLine("A Small Gadget includes 1 Small Widget and 1 Medium Widget standard.");
-            }
-
-            AddSmallWidgets(1);
-            AddMediumWidgets(1);
-        }*/
 
         public override void SetupGears()
         {
@@ -102,10 +90,5 @@ namespace Widgets2
         {
             throw new NotImplementedException();
         }
-
-        /*internal override void GetWidgetOrderSummary(out int iWidgets, out int iWidGears, out int iWidSprings, out int iWidLevers)
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }

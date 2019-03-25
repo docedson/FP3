@@ -235,7 +235,6 @@ namespace Order
         private void SetupSmallGadgets()
         {
             Gadget gadget = null;
-            //for (int ii = 0; ii < _iNumberOfSmallGadgets; ii++)
             {
                 gadget = new SmallGadgets();
                 SetupGadget(gadget);
@@ -245,7 +244,6 @@ namespace Order
         private void SetupMediumGadgets()
         {
             Gadget gadget = null;
-            //for (int ii = 0; ii < _iNumberOfMediumGadgets; ii++)
             {
                 gadget = new MediumGadgets();
                 SetupGadget(gadget);
@@ -255,7 +253,6 @@ namespace Order
         private void SetupLargeGadgets()
         {
             Gadget gadget = null;
-            //for (int ii = 0; ii < _iNumberOfLargeGadgets; ii++)
             {
                 gadget = new LargeGadgets();
                 SetupGadget(gadget);
@@ -315,11 +312,14 @@ namespace Order
             Console.WriteLine("-------Order Summary-------");
 
             Console.WriteLine("Total Small Gadgets   : {0, 5} {1, 5}", (_iNumberOfSmallGadgets).ToString(), " that are " + _sColorDefaultGadget1);
-            //Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ", (SerailNumSmallG));
+            Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ");
+            Console.WriteLine(" ");
             Console.WriteLine("Total Medium Gadgets  : {0, 5} {1, 5}", (_iNumberOfMediumGadgets).ToString(), " that are " + _sColorDefaultGadget2);
-            //Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ", (SerailNumMediumG));
+            Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ");
+            Console.WriteLine(" ");
             Console.WriteLine("Total Large Gadgets   : {0, 5} {1, 5}", (_iNumberOfLargeGadgets).ToString(), " that are " + _sColorDefaultGadget3);
-            //Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ", (SerailNumLargeG));
+            Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
+            Console.WriteLine(" ");
             Console.WriteLine("Total Butttons : {0, 5}", iTotalButtons.ToString());
             Console.WriteLine("Total Lights   : {0, 5}", iTotalLights.ToString());
             Console.WriteLine("Total Switches : {0, 5}", iTotalSwitches.ToString());

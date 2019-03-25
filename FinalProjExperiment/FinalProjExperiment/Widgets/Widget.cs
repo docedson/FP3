@@ -14,7 +14,7 @@ namespace Widgets
         private int _iLevers;
         private Painted _painted;
         private float _Price;
-        internal bool IsWidgetOrder;
+        //internal bool IsWidgetOrder;
 
         public Widget(float Price)
         {
