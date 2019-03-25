@@ -143,6 +143,7 @@ namespace Order
                             break;
                     }
 
+                    Console.WriteLine("- Each Medium Widget is constructed with 4 Gears, 5 Springs, and 3 Levers.");
                     SetupMediumWidgets();
                     Console.WriteLine(" ");
                 }
@@ -198,6 +199,7 @@ namespace Order
                             break;
                     }
 
+                    Console.WriteLine("- Each Large Widget is constructed with 9 Gears, 4 Springs, and 2 Levers.");
                     SetupLargeWidgets();
                     Console.WriteLine(" ");
                 }
@@ -279,28 +281,28 @@ namespace Order
                 iTotalWidSprings2 += iWidSprings2;
                 iTotalWidLevers2 += iWidLevers2;
 
-                iTotalGears += ((Widget2)w).Gears;
-                iTotalSprings += ((Widget2)w).Springs;
-                iTotalLevers += ((Widget2)w).Levers;
+                iTotalGears = ((_iNumberOfSmallWidgets2 * 2) + (_iNumberOfMediumWidgets2 * 4) + (_iNumberOfLargeWidgets2 * 9));//+= ((Widget2)w).Gears;
+                iTotalSprings = ((_iNumberOfSmallWidgets2 * 3) + (_iNumberOfMediumWidgets2 * 5) + (_iNumberOfLargeWidgets2 * 4));//+= ((Widget2)w).Springs;
+                iTotalLevers = ((_iNumberOfSmallWidgets2 * 1) + (_iNumberOfMediumWidgets2 * 3) + (_iNumberOfLargeWidgets2 * 2));//+= ((Widget2)w).Levers;
 
                 fTotalOrderPrice += ((Widget2)w).GetWidgetOrderTotalPrice();
             }
 
             Console.WriteLine("-------Order Summary-------");
 
-            Console.WriteLine("Total Small Widgets   : {0, 5} {1, 5}", (_iNumberOfSmallWidgets2).ToString(), " that are " + _sColorDefaultWidget1);
+            Console.WriteLine("Total Small Widgets:  {0, 5} {1, 5}", (_iNumberOfSmallWidgets2).ToString(), " that are " + _sColorDefaultWidget1);
             Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ");
             Console.WriteLine(" ");
-            Console.WriteLine("Total Medium Widgets  : {0, 5} {1, 5}", (_iNumberOfMediumWidgets2).ToString(), " that are " + _sColorDefaultWidget2);
+            Console.WriteLine("Total Medium Widgets: {0, 5} {1, 5}", (_iNumberOfMediumWidgets2).ToString(), " that are " + _sColorDefaultWidget2);
             Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ");
             Console.WriteLine(" ");
-            Console.WriteLine("Total Large Widgets   : {0, 5} {1, 5}", (_iNumberOfLargeWidgets2).ToString(), " that are " + _sColorDefaultWidget3);
+            Console.WriteLine("Total Large Widgets:  {0, 5} {1, 5}", (_iNumberOfLargeWidgets2).ToString(), " that are " + _sColorDefaultWidget3);
             Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
             Console.WriteLine(" ");
 
             Console.WriteLine("Total Gears    : {0, 5}", iTotalGears.ToString());
-            Console.WriteLine("Total Springs  : {0, 5}", iTotalWidSprings2.ToString());
-            Console.WriteLine("Total Levers   : {0, 5}", iTotalWidLevers2.ToString());
+            Console.WriteLine("Total Springs  : {0, 5}", iTotalSprings.ToString());//iTotalWidSprings2.ToString());
+            Console.WriteLine("Total Levers   : {0, 5}", iTotalLevers.ToString());//iTotalWidLevers2.ToString());
             Console.WriteLine("----------------------------------------------------");
 
             Console.WriteLine("Sub Total Price              : {0, 20}", fTotalOrderPrice.ToString("C2"));
