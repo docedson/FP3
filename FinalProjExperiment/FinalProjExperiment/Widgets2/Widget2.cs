@@ -12,7 +12,7 @@ namespace Widgets2
 {
     public abstract class Widget2 : IWidgets2
     {
-        //private ArrayList _Widgets = new ArrayList();
+        private ArrayList _Widgets2 = new ArrayList();
         private Gears _Gears;
         private Springs _Springs;
         private Levers _Levers;
@@ -298,18 +298,18 @@ namespace Widgets2
             }
         }
 
-        /*public void GetWidgetOrderSummary2()
+        public void GetWidgetOrderSummary2()
         {
             Console.WriteLine("This order has a total of  " + _Widgets2.Count.ToString() + " Widgets");
 
             foreach (IWidgets2 wi in _Widgets2)
             {
-                ((Widget2)wi).getWidgetOrderSummary2();
-                ((Widget2)wi).getPainted();
-                _fTotalWidgetPrice += ((Widget2)wi).getWidgetPrice();
-                _iTotalGears2 += ((Widget2)wi).Gears;
-                _iTotalSprings2 += ((Widget2)wi).Springs;
-                _iTotalLevers2 += ((Widget2)wi).Levers;
+                //((Widget2)wi).getWidgetOrderSummary2();
+                //((Widget2)wi).getPainted();
+                //_fTotalWidgetPrice += ((Widget2)wi).getWidgetPrice();
+                _iTotalGears += ((Widget2)wi).Gears;
+                _iTotalSprings += ((Widget2)wi).Springs;
+                _iTotalLevers += ((Widget2)wi).Levers;
             }
 
             Console.WriteLine("This order includes the following items: ");
@@ -317,23 +317,23 @@ namespace Widgets2
             Console.WriteLine("- " + _iTotalLevers.ToString() + " Levers");
             Console.WriteLine("- " + _iTotalSprings.ToString() + " Springs");
             Console.WriteLine("Subtotal Widget Price       : \t{0,20}", _fTotalWidgetPrice.ToString("C2"));
-        }*/
+        }
 
-        /*public void GetWidgetOrderSummary(out int iTotalWidgets, out int iTotalGears, out int iTotalSprings, out int iTotalLevers)
+        public void GetWidgetOrderSummary2(out int iTotalWidgets, out int iTotalGears, out int iTotalSprings, out int iTotalLevers)
         {
             iTotalGears = 0;
             iTotalSprings = 0;
             iTotalLevers = 0;
-            //iTotalWidgets = _Widgets2.Count;
+            iTotalWidgets = _Widgets2.Count;
 
-            /*foreach (IWidgets2 wi in _Widgets2)
+            foreach (IWidgets2 wi in _Widgets2)
             {
                 _fTotalWidgetPrice += ((Widget)wi).getWidgetPrice();
                 iTotalGears += ((Widget)wi).Gears;
                 iTotalSprings += ((Widget)wi).Springs;
                 iTotalLevers += ((Widget)wi).Levers;
             }
-        }*/
+        }
 
         public float GetWidgetOrderTotalPrice()
         {
@@ -343,24 +343,13 @@ namespace Widgets2
                 Console.WriteLine("Subtotal Widget Price       : \t{0,20}", fTotalWWidgetPrice.ToString("C2"));
             }
 
-            return fTotalWWidgetPrice /*+ +_fTotalWidgetPrice*/;
+            return fTotalWWidgetPrice;
         }
 
         public abstract void SetupWidgets2();
         public abstract void SetupGears(bool _IsWidgetOrder);
         public abstract void SetupSprings(bool _IsWidgetOrder);
         public abstract void SetupLevers(bool _IsWidgetOrder);
-
-        /*public static implicit operator Widget2(SmallWidget v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static implicit operator Widget2(MediumWidget v)
-        {
-            throw new NotImplementedException();
-        }*/
-
-        //internal abstract void GetWidgetOrderSummary(out int iWidgets, out int iWidGears, out int iWidSprings, out int iWidLevers);
+        //internal abstract void GetWidgetOrderSummary2(out int iWidgets2, out int iWidGears2, out int iWidSprings2, out int iWidLevers2);
     }
 }

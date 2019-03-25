@@ -6,16 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 //using Widgets;
 using Widgets2;
-using Accessories2;
+//using Accessories2;
 
 namespace Order
 {
     public class WidgetOrder2 : IOrder2
     {
-        private ArrayList _Widgets = new ArrayList();
-        private int _iNumberOfSmallWidgets = 0;
-        private int _iNumberOfMediumWidgets = 0;
-        private int _iNumberOfLargeWidgets = 0;
+        private ArrayList _Widgets2 = new ArrayList();
+        private int _iNumberOfSmallWidgets2 = 0;
+        private int _iNumberOfMediumWidgets2 = 0;
+        private int _iNumberOfLargeWidgets2 = 0;
 
         private string _sColorDefaultWidget1;
         private string _sColorDefaultWidget2;
@@ -38,9 +38,9 @@ namespace Order
 
                 Console.Write("How many Small Widgets would you like?: ");
                 sResponse = Console.ReadLine();
-                _iNumberOfSmallWidgets = int.Parse(sResponse);
+                _iNumberOfSmallWidgets2 = int.Parse(sResponse);
 
-                if (_iNumberOfSmallWidgets > 0)
+                if (_iNumberOfSmallWidgets2 > 0)
                 {
                     Console.Write("Choose an option for the Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
@@ -88,14 +88,15 @@ namespace Order
                             break;
                     }
 
+                    Console.WriteLine("- Each Small Widget is constructed with 2 Gears, 3 Springs, and 1 Lever.");
                     SetupSmallWidgets();
                     Console.WriteLine(" ");
                 }
 
                 Console.Write("How many Medium Widgets would you like?: ");
                 sResponse2 = Console.ReadLine();
-                _iNumberOfMediumWidgets = int.Parse(sResponse2);
-                if (_iNumberOfMediumWidgets > 0)
+                _iNumberOfMediumWidgets2 = int.Parse(sResponse2);
+                if (_iNumberOfMediumWidgets2 > 0)
                 {
                     Console.Write("Choose an option for the Medium Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
@@ -149,8 +150,8 @@ namespace Order
 
                 Console.Write("How many Large Widgets would you like?: ");
                 sResponse3 = Console.ReadLine();
-                _iNumberOfLargeWidgets = int.Parse(sResponse3);
-                if (_iNumberOfLargeWidgets > 0)
+                _iNumberOfLargeWidgets2 = int.Parse(sResponse3);
+                if (_iNumberOfLargeWidgets2 > 0)
                 {
                     Console.Write("Choose an option for the Larget Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
@@ -212,7 +213,7 @@ namespace Order
                 return;
             }
 
-            GetOrderSummary();
+            GetOrderSummary2();
         }
 
         private void SetupSmallWidgets()
@@ -228,7 +229,7 @@ namespace Order
         private void SetupMediumWidgets()
         {
             Widget2 widget2 = null;
-            for (int ii = 0; ii < _iNumberOfMediumWidgets; ii++)
+            //for (int ii = 0; ii < _iNumberOfMediumWidgets; ii++)
             {
                 widget2 = new MediumWidgets2();
                 SetupWidgets2(widget2);
@@ -243,7 +244,7 @@ namespace Order
         private void SetupLargeWidgets()
         {
             Widget2 widget2 = null;
-            for (int ii = 0; ii < _iNumberOfLargeWidgets; ii++)
+            //for (int ii = 0; ii < _iNumberOfLargeWidgets; ii++)
             {
                 widget2 = new LargeWidgets2();
                 SetupWidgets2(widget2);
@@ -260,43 +261,43 @@ namespace Order
             widget2.SetupGears();
             widget2.SetupSprings();
             widget2.SetupLevers();
-            _Widgets.Add(widget2);
+            _Widgets2.Add(widget2);
         }
 
-        private void GetOrderSummary()
+        private void GetOrderSummary2()
         {
-            /*int iWidGears = 0;
-            int iWidSprings = 0;
-            int iWidLevers = 0;
-            int iWidgets = 0;*/
+            int iWidGears2 = 0;
+            int iWidSprings2 = 0;
+            int iWidLevers2 = 0;
+            int iWidgets2 = 0;
 
             int iTotalWidGears2 = 0;
             int iTotalWidSprings2 = 0;
             int iTotalWidLevers2 = 0;
-            //int iTotalWidgets = 0;
+            int iTotalWidgets = 0;
 
             float fTotalOrderPrice = 0.0f;
 
             Console.WriteLine();
 
-            /*foreach (Widget2 w in _Widgets)
+            foreach (Widget2 w in _Widgets2)
             {
-                ((Widget2)w).GetWidgetOrderSummary(out iWidgets, out iWidGears, out iWidSprings, out iWidLevers);
+                ((Widget2)w).GetWidgetOrderSummary2(out iWidgets2, out iWidGears2, out iWidSprings2, out iWidLevers2);
                 iTotalWidGears2 += iWidGears2;
                 iTotalWidSprings2 += iWidSprings2;
                 iTotalWidLevers2 += iWidLevers2;
                 //iTotalWidgets += iWidgets;
 
                 fTotalOrderPrice += ((Widget2)w).GetWidgetOrderTotalPrice();
-            }*/
+            }
 
             Console.WriteLine("-------Order Summary-------");
 
-            Console.WriteLine("Total Small Widgets   : {0, 5} {1, 5}", (_iNumberOfSmallWidgets).ToString(), " that are " + _sColorDefaultWidget1);
+            Console.WriteLine("Total Small Widgets   : {0, 5} {1, 5}", (_iNumberOfSmallWidgets2).ToString(), " that are " + _sColorDefaultWidget1);
             //Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ", (SerailNumSmallG));
-            Console.WriteLine("Total Medium Widgets  : {0, 5} {1, 5}", (_iNumberOfMediumWidgets).ToString(), " that are " + _sColorDefaultWidget2);
+            Console.WriteLine("Total Medium Widgets  : {0, 5} {1, 5}", (_iNumberOfMediumWidgets2).ToString(), " that are " + _sColorDefaultWidget2);
             //Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ", (SerailNumMediumG));
-            Console.WriteLine("Total Large Widgets   : {0, 5} {1, 5}", (_iNumberOfLargeWidgets).ToString(), " that are " + _sColorDefaultWidget3);
+            Console.WriteLine("Total Large Widgets   : {0, 5} {1, 5}", (_iNumberOfLargeWidgets2).ToString(), " that are " + _sColorDefaultWidget3);
             //Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ", (SerailNumLargeG));
 
             Console.WriteLine("Total Gears    : {0, 5}", iTotalWidGears2.ToString());

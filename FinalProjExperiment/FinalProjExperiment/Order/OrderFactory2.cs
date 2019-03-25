@@ -12,7 +12,7 @@ namespace Order
 
         public enum OrderMethod
         {
-            Retail, Custom
+            Widget
         }
         public virtual void Build2()
         {
