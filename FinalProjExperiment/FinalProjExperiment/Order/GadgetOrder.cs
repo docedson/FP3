@@ -280,14 +280,10 @@ namespace Order
             _Gadgets.Add(gadget);
         }
 
-        /*private void SerialNumbers()
+        private static void SerialNumberGenerator()
         {
-            SerialNumberGenerator generator = SerialNumberGenerator.Instance;
-            Console.WriteLine("Next serial " + generator.NextSerial);
-            //Above and below do same thing, just different ways to type it - but Sr. Dev would probably say to use below
-            Console.WriteLine("Next serial " + SerialNumberGenerator.Instance.NextSerial);//this combines above 2 lines into 1
-            Console.WriteLine("Next serial " + generator.NextSerial);
-        }*/
+            WAGSerialGen NextSerial = WAGSerialGen.Instance;
+        }
 
         private void GetOrderSummary()
         {
@@ -318,34 +314,31 @@ namespace Order
                 iTotalWidLevers += iWidLevers;
                 iTotalWidgets += iWidgets;
 
-                /*iTotalButtons += ((Gadget)g).Buttons;
-                iTotalLights += ((Gadget)g).Lights;
-                iTotalSwitches += ((Gadget)g).Switches;*/
+                iTotalSwitches = ((_iNumberOfSmallGadgets * 1) + (_iNumberOfMediumGadgets * 1) + (_iNumberOfLargeGadgets * 2));
+                iTotalButtons = ((_iNumberOfSmallGadgets * 2) + (_iNumberOfMediumGadgets * 2) + (_iNumberOfLargeGadgets * 4));
+                iTotalLights = ((_iNumberOfMediumGadgets * 3) + (_iNumberOfLargeGadgets * 5));
 
-                iTotalSwitches = ((_iNumberOfSmallGadgets * 1) + (_iNumberOfMediumGadgets * 1) + (_iNumberOfLargeGadgets * 2));//+= ((Widget2)w).Gears;
-                iTotalButtons = ((_iNumberOfSmallGadgets * 2) + (_iNumberOfMediumGadgets * 2) + (_iNumberOfLargeGadgets * 4));//+= ((Widget2)w).Springs;
-                iTotalLights = ((_iNumberOfMediumGadgets * 3) + (_iNumberOfLargeGadgets * 5));//+= ((Widget2)w).Levers;
-                //SerialNumbersSG = (_iNumberOfSmallGadgets)
 
-                fTotalOrderPrice = ((_iNumberOfSmallGadgets * 50) + (_iNumberOfMediumGadgets * 75) + (_iNumberOfLargeGadgets * 100));//+= ((Gadget)g).GetGadgetOrderTotalPrice();
+                fTotalOrderPrice = ((_iNumberOfSmallGadgets * 50) + (_iNumberOfMediumGadgets * 75) + (_iNumberOfLargeGadgets * 100));
                 fGrandTotalPrice = (fTotalOrderPrice + 25);
             }
 
             Console.WriteLine("-------Order Summary-------");
 
             Console.WriteLine("Total Small Gadgets   : {0, 5} {1, 5}", (_iNumberOfSmallGadgets).ToString(), " that are " + _sColorDefaultGadget1);
-            Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ");
-
-
-
-
+            Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: " +WaGs.SmallGadget);
 
             Console.WriteLine("---");
             Console.WriteLine("Total Medium Gadgets  : {0, 5} {1, 5}", (_iNumberOfMediumGadgets).ToString(), " that are " + _sColorDefaultGadget2);
             Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ");
             Console.WriteLine("---");
+
+
             Console.WriteLine("Total Large Gadgets   : {0, 5} {1, 5}", (_iNumberOfLargeGadgets).ToString(), " that are " + _sColorDefaultGadget3);
-            Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
+            Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"06LRG\", and followed by: ");
+
+
+
             Console.WriteLine("---");
             Console.WriteLine("Total Butttons : {0, 5}", iTotalButtons.ToString());
             Console.WriteLine("Total Lights   : {0, 5}", iTotalLights.ToString());
@@ -360,7 +353,7 @@ namespace Order
             Console.WriteLine("Sub Total Price              : {0, 20}", fTotalOrderPrice.ToString("C2"));
             Console.WriteLine("Shipping Cost                : {0, 20}", "$25.00");
             fTotalOrderPrice += 25.00f;
-            Console.WriteLine("Total Order & Shipping Price : {0, 20}", fGrandTotalPrice.ToString("C2"));//fTotalOrderPrice.ToString("C2"));
+            Console.WriteLine("Total Order & Shipping Price : {0, 20}", fGrandTotalPrice.ToString("C2"));
         }
     }
 }
