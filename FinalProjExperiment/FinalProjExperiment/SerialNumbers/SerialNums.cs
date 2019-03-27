@@ -1,15 +1,21 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Text;
+using Gadgets;
+using Widgets;
+using Widgets2;
 
 namespace SerialNumbers
 {
-    public class SerialNumberGenerator
+    public class SerialNum
     {
-        private static volatile SerialNumberGenerator instance;
-        private static object synchronizationRoot = new object();
-        private int _count = 1245;
-        public static SerialNumberGenerator Instance
+        public static volatile SerialNum instance;
+        private string _prefix;
+        private int _count;
+
+        enum Type { gadgetS, gadgetM, gadgetL, widgetS, widgetM, widgetL};
+        public static object synchronizationRoot = new object();
+        public static SerialNum Instance
         {
             get
             {
@@ -19,19 +25,28 @@ namespace SerialNumbers
                     {
                         if (instance == null)
                         {
-                            instance = new SerialNumberGenerator();
+                            instance = new SerialNum();
                         }
                     }
                 }
                 return instance;
             }
         }
-        private SerialNumberGenerator() { }
+        public SerialNum() { }
 
-        public int NextSerial
+        public string NextSerial (Type type)
         {
-            get { return ++_count; }
-        }
+            int value;
+            switch(type)
+            {
+                case gadgetS;
+                    _prefix = "Happy";
+                    _count = 123;
+                    value = _count #;
+                        return _prefix + value;
 
+                case gadgetM:
+            }
+        }
     }
-}
+}*/

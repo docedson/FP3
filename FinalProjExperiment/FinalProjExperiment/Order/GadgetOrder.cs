@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gadgets;
+using SerialNumbers;
 
 namespace Order
 {
@@ -89,9 +90,9 @@ namespace Order
                     }
 
                     Console.WriteLine("A Small Gadget is powered by the included Battery.");
-                    Console.WriteLine("- Each Small Gadget is constructed with 1 Small Widget, 1 Medium Widget, 1 Switch, and 2 Buttons.");
+                    Console.WriteLine("- Each Small Gadget is constructed with 1 Small Widget, 1 Medium Widget, 1 Switch, 2 Buttons, and are $50/each.");
                     SetupSmallGadgets();
-                    Console.WriteLine(" ");
+                    Console.WriteLine("-----------");
                 }
                 else if (_iNumberOfSmallGadgets < 0)
                 {
@@ -157,9 +158,9 @@ namespace Order
                     }
 
                     Console.WriteLine("A Medium Gadget is powered by the included Solar Battery.");
-                    Console.WriteLine("- Each Medium Gadget is constructed with 2 Small Widgets, 2 Medium Widgets, 1 Large Widget, 1 Switch, 2 Buttons, and 3 Lights.");
+                    Console.WriteLine("- Each Medium Gadget is constructed with 2 Small Widgets, 2 Medium Widgets, 1 Large Widget, 1 Switch, 2 Buttons, 3 Lights, and are $75/each.");
                     SetupMediumGadgets();
-                    Console.WriteLine(" ");
+                    Console.WriteLine("-----------");
                 }
                 else
                 {
@@ -219,9 +220,9 @@ namespace Order
                     }
 
                     Console.WriteLine("A Large Gadget is powered by the included Generator.");
-                    Console.WriteLine("- Each Large Gadget is constructed with 3 Small Widgets, 6 Medium Widgets, 3 Large Widgets, 2 Switches, 4 Buttons, and 5 Lights.");
+                    Console.WriteLine("- Each Large Gadget is constructed with 3 Small Widgets, 6 Medium Widgets, 3 Large Widgets, 2 Switches, 4 Buttons, 5 Lights, and are $100/each.");
                     SetupLargeGadgets();
-                    Console.WriteLine(" ");
+                    Console.WriteLine("-----------");
                 }
                 else
                 {
@@ -279,6 +280,15 @@ namespace Order
             _Gadgets.Add(gadget);
         }
 
+        /*private void SerialNumbers()
+        {
+            SerialNumberGenerator generator = SerialNumberGenerator.Instance;
+            Console.WriteLine("Next serial " + generator.NextSerial);
+            //Above and below do same thing, just different ways to type it - but Sr. Dev would probably say to use below
+            Console.WriteLine("Next serial " + SerialNumberGenerator.Instance.NextSerial);//this combines above 2 lines into 1
+            Console.WriteLine("Next serial " + generator.NextSerial);
+        }*/
+
         private void GetOrderSummary()
         {
             int iWidGears = 0;
@@ -315,6 +325,7 @@ namespace Order
                 iTotalSwitches = ((_iNumberOfSmallGadgets * 1) + (_iNumberOfMediumGadgets * 1) + (_iNumberOfLargeGadgets * 2));//+= ((Widget2)w).Gears;
                 iTotalButtons = ((_iNumberOfSmallGadgets * 2) + (_iNumberOfMediumGadgets * 2) + (_iNumberOfLargeGadgets * 4));//+= ((Widget2)w).Springs;
                 iTotalLights = ((_iNumberOfMediumGadgets * 3) + (_iNumberOfLargeGadgets * 5));//+= ((Widget2)w).Levers;
+                //SerialNumbersSG = (_iNumberOfSmallGadgets)
 
                 fTotalOrderPrice = ((_iNumberOfSmallGadgets * 50) + (_iNumberOfMediumGadgets * 75) + (_iNumberOfLargeGadgets * 100));//+= ((Gadget)g).GetGadgetOrderTotalPrice();
                 fGrandTotalPrice = (fTotalOrderPrice + 25);
@@ -324,17 +335,22 @@ namespace Order
 
             Console.WriteLine("Total Small Gadgets   : {0, 5} {1, 5}", (_iNumberOfSmallGadgets).ToString(), " that are " + _sColorDefaultGadget1);
             Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ");
-            Console.WriteLine(" ");
+
+
+
+
+
+            Console.WriteLine("---");
             Console.WriteLine("Total Medium Gadgets  : {0, 5} {1, 5}", (_iNumberOfMediumGadgets).ToString(), " that are " + _sColorDefaultGadget2);
             Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ");
-            Console.WriteLine(" ");
+            Console.WriteLine("---");
             Console.WriteLine("Total Large Gadgets   : {0, 5} {1, 5}", (_iNumberOfLargeGadgets).ToString(), " that are " + _sColorDefaultGadget3);
             Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
-            Console.WriteLine(" ");
+            Console.WriteLine("---");
             Console.WriteLine("Total Butttons : {0, 5}", iTotalButtons.ToString());
             Console.WriteLine("Total Lights   : {0, 5}", iTotalLights.ToString());
             Console.WriteLine("Total Switches : {0, 5}", iTotalSwitches.ToString());
-
+            Console.WriteLine(" ");
             Console.WriteLine("Total Widgets  : {0, 5}", iTotalWidgets.ToString());
             Console.WriteLine("-Total Gears   : {0, 5}", iTotalWidGears.ToString());
             Console.WriteLine("-Total Springs : {0, 5}", iTotalWidSprings.ToString());

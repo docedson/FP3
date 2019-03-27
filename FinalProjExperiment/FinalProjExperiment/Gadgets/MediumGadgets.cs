@@ -15,7 +15,7 @@ namespace Gadgets
             _defaultButtons = 2;
             _defaultLights = 3;
 
-            Console.WriteLine("The selected Medium Gadget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("The selected Medium Gadget is " + Price.ToString("C2") + " each");
         }
 
         public override void SetupWidgets()
@@ -30,21 +30,21 @@ namespace Gadgets
             AddLargeWidgets(1);
         }
 
-        public override void SetupLights()
+        /*public override void SetupLights()
         {
             //String sLights;
             if (!IsGadgetOrder)
             {
                 Lights = _defaultLights;
-                /*Console.WriteLine("There are " + _defaultLights.ToString() + " Lights available for a Medium Gadget at " + LightPrice + " each.");
+                Console.WriteLine("There are " + _defaultLights.ToString() + " Lights available for a Medium Gadget at " + LightPrice + " each.");
                 Console.Write("However, additional Lights may be added to your order. " + "How many more would you like to add to your order?: ");
                 sLights = Console.ReadLine();
-                Lights = int.Parse(sLights) + _defaultLights;*/
+                Lights = int.Parse(sLights) + _defaultLights;
             }
-            /*else
+            else
             {
                 Lights = _defaultLights;
-            }*/
+            }
         }
 
         public override void SetupSwitches()
@@ -54,15 +54,15 @@ namespace Gadgets
             if (!IsGadgetOrder)
             {
                 Switches = _defaultSwitches;
-                /*Console.WriteLine("There are " + _defaultSwitches.ToString() + " Switches available for a Medium Gadget at " + SwitchPrice + " each.");
+                Console.WriteLine("There are " + _defaultSwitches.ToString() + " Switches available for a Medium Gadget at " + SwitchPrice + " each.");
                 Console.Write("However, additional Switches may be added to your order. " + "How many more would you like to add to your order?: ");
                 sSwitches = Console.ReadLine();
-                Switches = int.Parse(sSwitches) + _defaultSwitches;*/
+                Switches = int.Parse(sSwitches) + _defaultSwitches;
             }
-            /*else
+            lse
             {
                 Switches = _defaultSwitches;
-            }*/
+            }
         }
 
         public override void SetupButtons()
@@ -72,15 +72,15 @@ namespace Gadgets
             if (!IsGadgetOrder)
             {
                 Buttons = _defaultButtons;
-                /*Console.WriteLine("There are " + _defaultButtons.ToString() + " Buttons available for a Medium Gadget. for " + ButtonPrice + " each.");
+                Console.WriteLine("There are " + _defaultButtons.ToString() + " Buttons available for a Medium Gadget. for " + ButtonPrice + " each.");
                 Console.Write("However, additional Buttons may be added to your order. " + "How many more would you like to add to your order?: ");
                 sButtons = Console.ReadLine();
-                Buttons = int.Parse(sButtons) + _defaultButtons;*/
+                Buttons = int.Parse(sButtons) + _defaultButtons;
             }
-            /*else
+            else
             {
                 Buttons = _defaultButtons;
-            }*/
-        }
+            }
+        }*/
     }
 }
