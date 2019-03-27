@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Accessories;
 using Accessories2;
 using Widgets2;
+using SerialNumbers;
 
 namespace Widgets2
 {
@@ -37,6 +38,12 @@ namespace Widgets2
             _Springs = new Springs();
             _Levers = new Levers();
             _painted = new Painted();
+        }
+
+        public string Serials
+        {
+            get;
+            set;
         }
 
         public Widget2()

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SerialNumbers;
 
 namespace Gadgets
 {
@@ -13,8 +14,8 @@ namespace Gadgets
         {
             _defaultSwitches = 1;
             _defaultButtons = 2;
-
-            //Console.WriteLine("The selected Small Gadget is " + Price.ToString("C2") + " each");
+            Serials = WAGSerialGen.Instance.NextSerial(WaGs.SmallGadget);
+            Console.WriteLine("Serial: " + Serials);
         }
 
         public override void SetupWidgets()
@@ -22,37 +23,12 @@ namespace Gadgets
             if (!IsGadgetOrder)
             {
                 Console.WriteLine("A Small Gadget includes 1 Small Widget and 1 Medium Widget standard.");
+                
             }
 
             AddSmallWidgets(1);
             AddMediumWidgets(1);
         }
 
-        /*public override void SetupLights()
-        {
-            if (!IsGadgetOrder)
-            {
-                Console.WriteLine("No Lights are available for a Small Gadget");
-            }
-            Lights = _defaultLights;
-        }
-
-        public override void SetupSwitches()
-        {
-            if (!IsGadgetOrder)
-            {
-                Console.WriteLine("There are " + _defaultSwitches.ToString() + " Switches available for a Small Gadget at " + SwitchPrice + " each.");
-            }
-            Switches = _defaultSwitches;
-        }
-
-        public override void SetupButtons()
-        {
-            if (!IsGadgetOrder)
-            {
-                Console.WriteLine("There are " + _defaultButtons.ToString() + " Buttons available for a Small Gadget at " + ButtonPrice + " each.");
-            }
-            Buttons = _defaultButtons;
-        }*/
     }
 }

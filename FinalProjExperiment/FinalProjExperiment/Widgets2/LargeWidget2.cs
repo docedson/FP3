@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Accessories2;
+using SerialNumbers;
 
 namespace Widgets2
 {
@@ -15,6 +16,7 @@ namespace Widgets2
             _defaultGears = 9;
             _defaultSprings = 4;
             _defaultLevers = 2;
+            Serials = WAGSerialGen.Instance.NextSerial(WaGs.LargeWidget);
             Console.WriteLine("The selected Large Widget is " + Price.ToString("C2") + " each");
         }
 

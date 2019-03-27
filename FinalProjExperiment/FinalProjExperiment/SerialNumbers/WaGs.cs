@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +15,7 @@ namespace SerialNumbers
         private static volatile WAGSerialGen instance;
         private string _prefix;
         private int _count;
-
-
         private static object synchronizationRoot = new object();
-
         public static WAGSerialGen Instance
         {
             get
@@ -77,7 +74,6 @@ namespace SerialNumbers
                     _count = 1000;
                     value = _count++;
                     return _prefix + value;
-
             }
         }
     }

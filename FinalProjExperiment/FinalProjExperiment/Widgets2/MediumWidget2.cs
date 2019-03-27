@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SerialNumbers;
 
 namespace Widgets2
 {
@@ -14,7 +15,7 @@ namespace Widgets2
             _defaultGears = 4;
             _defaultSprings = 5;
             _defaultLevers = 3;
-
+            Serials = WAGSerialGen.Instance.NextSerial(WaGs.MediumWidget);
             Console.WriteLine("The selected Medium Widget is " + Price.ToString("C2") + " each");
         }
 

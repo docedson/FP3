@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Accessories;
 using Widgets;
+using SerialNumbers;
 
 namespace Gadgets
 {
@@ -15,7 +16,7 @@ namespace Gadgets
         private Buttons _Buttons;
         private Lights _Lights;
         private float _Price;
-        private Painted _painted;
+        private Painted _painted;        
 
         private int _iTotalGears = 0;
         private int _iTotalSprings = 0;
@@ -36,6 +37,12 @@ namespace Gadgets
             _Buttons = new Buttons();
             _Lights = new Lights();
             _painted = new Painted();
+        }
+
+        public string Serials
+        {
+            get;
+            set;
         }
 
         public float Price

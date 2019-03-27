@@ -21,6 +21,7 @@ namespace Order
         private string _sColorDefaultGadget3;
 
         public bool IsGadgetOrder { get; set; }
+        public object Serials { get; private set; }
 
         public GadgetOrder(bool bGadgetOrder)
         {
@@ -231,7 +232,7 @@ namespace Order
             }
             catch (Exception e)
             {
-                Console.WriteLine("You did not enter a valid option");//("Error has occurred " + e.Message);
+                Console.WriteLine("You did not enter a valid option");
                 return;
             }
 
@@ -275,14 +276,8 @@ namespace Order
             gadget.SetupSwitches();
             gadget.SetupButtons();
             gadget.SetupLights();
-            gadget.SetupPower();
             gadget.SetupSerialNumber();
             _Gadgets.Add(gadget);
-        }
-
-        private static void SerialNumberGenerator()
-        {
-            WAGSerialGen NextSerial = WAGSerialGen.Instance;
         }
 
         private void GetOrderSummary()
@@ -318,7 +313,6 @@ namespace Order
                 iTotalButtons = ((_iNumberOfSmallGadgets * 2) + (_iNumberOfMediumGadgets * 2) + (_iNumberOfLargeGadgets * 4));
                 iTotalLights = ((_iNumberOfMediumGadgets * 3) + (_iNumberOfLargeGadgets * 5));
 
-
                 fTotalOrderPrice = ((_iNumberOfSmallGadgets * 50) + (_iNumberOfMediumGadgets * 75) + (_iNumberOfLargeGadgets * 100));
                 fGrandTotalPrice = (fTotalOrderPrice + 25);
             }
@@ -326,7 +320,7 @@ namespace Order
             Console.WriteLine("-------Order Summary-------");
 
             Console.WriteLine("Total Small Gadgets   : {0, 5} {1, 5}", (_iNumberOfSmallGadgets).ToString(), " that are " + _sColorDefaultGadget1);
-            Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: " +WaGs.SmallGadget);
+            Console.WriteLine("Your Small Gadgets Serial Numbers are: ");
 
             Console.WriteLine("---");
             Console.WriteLine("Total Medium Gadgets  : {0, 5} {1, 5}", (_iNumberOfMediumGadgets).ToString(), " that are " + _sColorDefaultGadget2);

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gadgets;
 using Order;
+using SerialNumbers;
 
 namespace WagCorp
 {
