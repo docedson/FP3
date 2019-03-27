@@ -89,13 +89,18 @@ namespace Order
                     }
 
                     Console.WriteLine("A Small Gadget is powered by the included Battery.");
-                    Console.WriteLine("- Each Small Gadget is constructed with 1 Small Widget ($15/each), 1 Medium Widget ($20/each), 1 Switch ($25/each), and 2 Buttons ($5/each).");
+                    Console.WriteLine("- Each Small Gadget is constructed with 1 Small Widget, 1 Medium Widget, 1 Switch, and 2 Buttons.");
                     SetupSmallGadgets();
                     Console.WriteLine(" ");
                 }
-                else
+                else if (_iNumberOfSmallGadgets < 0)
                 {
                     Console.WriteLine("You did not enter a valid option. Please try again.");
+                }
+                //else if (_iNumberOfSmallGadgets != )
+                else
+                {
+                    Console.WriteLine("You did not enter a valid option. Please try again.");                    
                 }
 
                 Console.Write("How many Medium Gadgets would you like?: ");
@@ -152,7 +157,7 @@ namespace Order
                     }
 
                     Console.WriteLine("A Medium Gadget is powered by the included Solar Battery.");
-                    Console.WriteLine("- Each Medium Gadget is constructed with 2 Small Widget ($15/each), 2 Medium Widget ($20/each), 1 Large Widget ($25/each), 1 Switch ($25/each), and 2 Buttons ($5/each), and 3 Lights ($10/each).");
+                    Console.WriteLine("- Each Medium Gadget is constructed with 2 Small Widgets, 2 Medium Widgets, 1 Large Widget, 1 Switch, 2 Buttons, and 3 Lights.");
                     SetupMediumGadgets();
                     Console.WriteLine(" ");
                 }
@@ -214,7 +219,7 @@ namespace Order
                     }
 
                     Console.WriteLine("A Large Gadget is powered by the included Generator.");
-                    Console.WriteLine("- Each Large Gadget is constructed with 3 Small Widgets ($15/each), 6 Medium Widget ($20/each), 3 Large Widgets ($25/each), 2 Switches ($25/each), and 4 Buttons ($5/each), and 5 Lights ($10/each).");
+                    Console.WriteLine("- Each Large Gadget is constructed with 3 Small Widgets, 6 Medium Widgets, 3 Large Widgets, 2 Switches, 4 Buttons, and 5 Lights.");
                     SetupLargeGadgets();
                     Console.WriteLine(" ");
                 }
@@ -225,7 +230,7 @@ namespace Order
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error has occurred " + e.Message);
+                Console.WriteLine("You did not enter a valid option");//("Error has occurred " + e.Message);
                 return;
             }
 
@@ -291,6 +296,7 @@ namespace Order
             int iTotalSwitches = 0;
 
             float fTotalOrderPrice = 0.0f;
+            float fGrandTotalPrice = 0.0f;
 
             Console.WriteLine();
 
@@ -302,11 +308,16 @@ namespace Order
                 iTotalWidLevers += iWidLevers;
                 iTotalWidgets += iWidgets;
 
-                iTotalButtons += ((Gadget)g).Buttons;
+                /*iTotalButtons += ((Gadget)g).Buttons;
                 iTotalLights += ((Gadget)g).Lights;
-                iTotalSwitches += ((Gadget)g).Switches;
+                iTotalSwitches += ((Gadget)g).Switches;*/
 
-                fTotalOrderPrice += ((Gadget)g).GetGadgetOrderTotalPrice();
+                iTotalSwitches = ((_iNumberOfSmallGadgets * 1) + (_iNumberOfMediumGadgets * 1) + (_iNumberOfLargeGadgets * 2));//+= ((Widget2)w).Gears;
+                iTotalButtons = ((_iNumberOfSmallGadgets * 2) + (_iNumberOfMediumGadgets * 2) + (_iNumberOfLargeGadgets * 4));//+= ((Widget2)w).Springs;
+                iTotalLights = ((_iNumberOfMediumGadgets * 3) + (_iNumberOfLargeGadgets * 5));//+= ((Widget2)w).Levers;
+
+                fTotalOrderPrice = ((_iNumberOfSmallGadgets * 50) + (_iNumberOfMediumGadgets * 75) + (_iNumberOfLargeGadgets * 100));//+= ((Gadget)g).GetGadgetOrderTotalPrice();
+                fGrandTotalPrice = (fTotalOrderPrice + 25);
             }
 
             Console.WriteLine("-------Order Summary-------");
@@ -325,15 +336,15 @@ namespace Order
             Console.WriteLine("Total Switches : {0, 5}", iTotalSwitches.ToString());
 
             Console.WriteLine("Total Widgets  : {0, 5}", iTotalWidgets.ToString());
-            Console.WriteLine("Total Gears    : {0, 5}", iTotalWidGears.ToString());
-            Console.WriteLine("Total Springs  : {0, 5}", iTotalWidSprings.ToString());
-            Console.WriteLine("Total Levers   : {0, 5}", iTotalWidLevers.ToString());
+            Console.WriteLine("-Total Gears   : {0, 5}", iTotalWidGears.ToString());
+            Console.WriteLine("-Total Springs : {0, 5}", iTotalWidSprings.ToString());
+            Console.WriteLine("-Total Levers  : {0, 5}", iTotalWidLevers.ToString());
             Console.WriteLine("----------------------------------------------------");
 
             Console.WriteLine("Sub Total Price              : {0, 20}", fTotalOrderPrice.ToString("C2"));
             Console.WriteLine("Shipping Cost                : {0, 20}", "$25.00");
             fTotalOrderPrice += 25.00f;
-            Console.WriteLine("Total Order & Shipping Price : {0, 20}", fTotalOrderPrice.ToString("C2"));
+            Console.WriteLine("Total Order & Shipping Price : {0, 20}", fGrandTotalPrice.ToString("C2"));//fTotalOrderPrice.ToString("C2"));
         }
     }
 }

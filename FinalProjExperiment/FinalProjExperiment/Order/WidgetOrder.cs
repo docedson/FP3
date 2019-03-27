@@ -1,4 +1,4 @@
-﻿using Gadgets;
+﻿/*using Gadgets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -106,4 +106,4 @@ namespace Order
             Console.WriteLine("Grand Order & Shipping Price : \t{0,20}", fRunningTotalOrderPrice.ToString("C2"));
         }
     }
-}
+}*/
