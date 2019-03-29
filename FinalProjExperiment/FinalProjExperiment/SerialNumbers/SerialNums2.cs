@@ -4,49 +4,22 @@ using System.Text;
 using Gadgets;
 using Widgets;
 using Widgets2;
+using Order;
 
 namespace SerialNumbers
 {
     public class SerialNum
     {
-        public static volatile SerialNum instance;
-        private string _prefix;
-        private int _count;
+        int number = 1234;
 
-        enum Type { gadgetS, gadgetM, gadgetL, widgetS, widgetM, widgetL};
-        public static object synchronizationRoot = new object();
-        public static SerialNum Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    lock (synchronizationRoot)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new SerialNum();
-                        }
-                    }
-                }
-                return instance;
-            }
-        }
-        public SerialNum() { }
+        do
+	{
+        Console.WriteLine("Serial Number: {0}, number);
+	} while (true);
 
-        public string NextSerial (Type type)
-        {
-            int value;
-            switch(type)
-            {
-                case gadgetS;
-                    _prefix = "Happy";
-                    _count = 123;
-                    value = _count #;
-                        return _prefix + value;
 
-                case gadgetM:
-            }
-        }
+
+
+
     }
 }*/

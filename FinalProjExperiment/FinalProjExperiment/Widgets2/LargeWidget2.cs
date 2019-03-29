@@ -16,8 +16,9 @@ namespace Widgets2
             _defaultGears = 9;
             _defaultSprings = 4;
             _defaultLevers = 2;
-            Serials = WAGSerialGen.Instance.NextSerial(WaGs.LargeWidget);
+            Serials = WAGSerialGen.Instance.NextSerial(WaGs.SmallWidget);
             Console.WriteLine("The selected Large Widget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("Serial Numbers: " + Serials);
         }
 
         public override void SetupGears(bool _IsWidgetOrder)

@@ -16,7 +16,7 @@ namespace Gadgets
         private Buttons _Buttons;
         private Lights _Lights;
         private float _Price;
-        private Painted _painted;        
+        private Painted _painted;
 
         private int _iTotalGears = 0;
         private int _iTotalSprings = 0;
@@ -39,7 +39,7 @@ namespace Gadgets
             _painted = new Painted();
         }
 
-        public string Serials
+        public object Serials
         {
             get;
             set;

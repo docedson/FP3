@@ -14,8 +14,7 @@ namespace Gadgets
         {
             _defaultSwitches = 1;
             _defaultButtons = 2;
-            Serials = WAGSerialGen.Instance.NextSerial(WaGs.SmallGadget);
-            Console.WriteLine("Serial: " + Serials);
+            Serials = WAGSerialGen.Instance.NextSerial(WaGs.SmallGadgets);          
         }
 
         public override void SetupWidgets()
@@ -23,7 +22,6 @@ namespace Gadgets
             if (!IsGadgetOrder)
             {
                 Console.WriteLine("A Small Gadget includes 1 Small Widget and 1 Medium Widget standard.");
-                
             }
 
             AddSmallWidgets(1);

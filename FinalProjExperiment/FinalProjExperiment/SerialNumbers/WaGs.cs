@@ -8,7 +8,7 @@ namespace SerialNumbers
 {
     public enum WaGs
     {
-        SmallWidget, MediumWidget, LargeWidget, SmallGadget, MediumGadgets, LargeGadgets
+        SmallWidget, MediumWidget, LargeWidget, SmallGadgets, MediumGadgets, LargeGadgets        
     }
     public class WAGSerialGen
     {
@@ -54,7 +54,7 @@ namespace SerialNumbers
                     _count = 3467;
                     value = _count++;
                     return _prefix + value;
-                case WaGs.SmallGadget:
+                case WaGs.SmallGadgets:
                     _prefix = " 22SML";
                     _count = 1346;
                     value = _count++;

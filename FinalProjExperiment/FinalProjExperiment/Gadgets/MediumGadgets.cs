@@ -16,7 +16,6 @@ namespace Gadgets
             _defaultButtons = 2;
             _defaultLights = 3;
             Serials = WAGSerialGen.Instance.NextSerial(WaGs.MediumGadgets);
-
         }
 
         public override void SetupWidgets()

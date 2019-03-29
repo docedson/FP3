@@ -23,7 +23,6 @@ namespace Gadgets
             if (!IsGadgetOrder)
             {
                 Console.WriteLine("A Large Gadget includes 3 Small Widgets, 6 Medium Widgets and 3 Large Widgets as standard.");
-                Serials = WAGSerialGen.Instance.NextSerial(WaGs.SmallWidget);
             }
 
             AddSmallWidgets(3);

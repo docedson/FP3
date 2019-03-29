@@ -35,21 +35,22 @@ namespace Order
                 string sResponse2;
                 string sResponse3;
 
-                Console.Write("How many Small Widgets would you like?: ");
+                Console.Write(" How many Small Widgets would you like?: ");
                 sResponse = Console.ReadLine();
                 _iNumberOfSmallWidgets2 = int.Parse(sResponse);
 
                 if (_iNumberOfSmallWidgets2 > 0)
                 {
-                    Console.Write("Choose an option for the Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
+                    Console.Write(" Choose an option for the Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
 
                     switch (sPainted)
                     {
                         case 1:
 
-                            Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
+                            Console.Write(" What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                             int sColor = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(" ");
 
                             switch (sColor)
                             {
@@ -81,31 +82,34 @@ namespace Order
                             break;
                         case 2:
                             _sColorDefaultWidget1 = "Chrome Plated";
+                            Console.WriteLine(" ");
                             break;
                         case 3:
                             _sColorDefaultWidget1 = "Not Decorated";
+                            Console.WriteLine(" ");
                             break;
                     }
 
-                    Console.WriteLine("- Each Small Widget is constructed with 2 Gears, 3 Springs, and 1 Lever.");
+                    Console.WriteLine(" - Each Small Widget is constructed with 2 Gears, 3 Springs, and 1 Lever.");
                     SetupSmallWidgets();
-                    Console.WriteLine(" ");
+                    Console.WriteLine(" -----------");
                 }
 
-                Console.Write("How many Medium Widgets would you like?: ");
+                Console.Write(" How many Medium Widgets would you like?: ");
                 sResponse2 = Console.ReadLine();
                 _iNumberOfMediumWidgets2 = int.Parse(sResponse2);
                 if (_iNumberOfMediumWidgets2 > 0)
                 {
-                    Console.Write("Choose an option for the Medium Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
+                    Console.Write(" Choose an option for the Medium Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
 
                     switch (sPainted)
                     {
                         case 1:
 
-                            Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
+                            Console.Write(" What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                             int sColor = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(" ");
 
                             switch (sColor)
                             {
@@ -137,31 +141,34 @@ namespace Order
                             break;
                         case 2:
                             _sColorDefaultWidget2 = "Chrome Plated";
+                            Console.WriteLine(" ");
                             break;
                         case 3:
                             _sColorDefaultWidget2 = "Not Decorated";
+                            Console.WriteLine(" ");
                             break;
                     }
 
-                    Console.WriteLine("- Each Medium Widget is constructed with 4 Gears, 5 Springs, and 3 Levers.");
+                    Console.WriteLine(" - Each Medium Widget is constructed with 4 Gears, 5 Springs, and 3 Levers.");
                     SetupMediumWidgets();
-                    Console.WriteLine(" ");
+                    Console.WriteLine(" -----------");
                 }
 
-                Console.Write("How many Large Widgets would you like?: ");
+                Console.Write(" How many Large Widgets would you like?: ");
                 sResponse3 = Console.ReadLine();
                 _iNumberOfLargeWidgets2 = int.Parse(sResponse3);
                 if (_iNumberOfLargeWidgets2 > 0)
                 {
-                    Console.Write("Choose an option for the Larget Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
+                    Console.Write(" Choose an option for the Larget Widget to be decorated: (1) Painted, (2) Chrome Plated, (3) Plain: ");
                     int sPainted = Convert.ToInt32(Console.ReadLine());
 
                     switch (sPainted)
                     {
                         case 1:
 
-                            Console.Write("What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
+                            Console.Write(" What color would you like: (1) Black, (2) Green, (3) Brown, (4) Blue, (5) Yellow, (6) Violet, (7) Red, (8) Gold?: ");
                             int sColor = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(" ");
 
                             switch (sColor)
                             {
@@ -193,24 +200,26 @@ namespace Order
                             break;
                         case 2:
                             _sColorDefaultWidget3 = "Chrome Plated";
+                            Console.WriteLine(" ");
                             break;
                         case 3:
                             _sColorDefaultWidget3 = "Not Decorated";
+                            Console.WriteLine(" ");
                             break;
                     }
 
-                    Console.WriteLine("- Each Large Widget is constructed with 9 Gears, 4 Springs, and 2 Levers.");
+                    Console.WriteLine(" - Each Large Widget is constructed with 9 Gears, 4 Springs, and 2 Levers.");
                     SetupLargeWidgets();
-                    Console.WriteLine(" ");
+                    Console.WriteLine(" -----------");
                 }
                 else
                 {
-                    Console.WriteLine("You did not enter a valid option. Please try again.");
+                    Console.WriteLine(" You did not enter a valid option. Please try again.");
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error has occurred " + e.Message);
+                Console.WriteLine(" Error has occurred " + e.Message);
                 return;
             }
 
@@ -281,34 +290,34 @@ namespace Order
                 iTotalWidSprings2 += iWidSprings2;
                 iTotalWidLevers2 += iWidLevers2;
 
-                iTotalGears = ((_iNumberOfSmallWidgets2 * 2) + (_iNumberOfMediumWidgets2 * 4) + (_iNumberOfLargeWidgets2 * 9));//+= ((Widget2)w).Gears;
-                iTotalSprings = ((_iNumberOfSmallWidgets2 * 3) + (_iNumberOfMediumWidgets2 * 5) + (_iNumberOfLargeWidgets2 * 4));//+= ((Widget2)w).Springs;
-                iTotalLevers = ((_iNumberOfSmallWidgets2 * 1) + (_iNumberOfMediumWidgets2 * 3) + (_iNumberOfLargeWidgets2 * 2));//+= ((Widget2)w).Levers;
+                iTotalGears = ((_iNumberOfSmallWidgets2 * 2) + (_iNumberOfMediumWidgets2 * 4) + (_iNumberOfLargeWidgets2 * 9));
+                iTotalSprings = ((_iNumberOfSmallWidgets2 * 3) + (_iNumberOfMediumWidgets2 * 5) + (_iNumberOfLargeWidgets2 * 4));
+                iTotalLevers = ((_iNumberOfSmallWidgets2 * 1) + (_iNumberOfMediumWidgets2 * 3) + (_iNumberOfLargeWidgets2 * 2));
 
                 fTotalOrderPrice += ((Widget2)w).GetWidgetOrderTotalPrice();
             }
 
             Console.WriteLine("-------Order Summary-------");
 
-            Console.WriteLine("Total Small Widgets:  {0, 5} {1, 5}", (_iNumberOfSmallWidgets2).ToString(), " that are " + _sColorDefaultWidget1);
-            Console.WriteLine("Your Small Gadgets Serial Numbers begin with \"02SML\", and followed by: ");
+            Console.WriteLine(" Total Small Widgets:  {0, 5} {1, 5}", (_iNumberOfSmallWidgets2).ToString(), " that are " + _sColorDefaultWidget1);
+
             Console.WriteLine(" ");
-            Console.WriteLine("Total Medium Widgets: {0, 5} {1, 5}", (_iNumberOfMediumWidgets2).ToString(), " that are " + _sColorDefaultWidget2);
-            Console.WriteLine("Your Medium Gadgets Serial Numbers begin with \"04MED\", and followed by: ");
+            Console.WriteLine(" Total Medium Widgets: {0, 5} {1, 5}", (_iNumberOfMediumWidgets2).ToString(), " that are " + _sColorDefaultWidget2);
+
             Console.WriteLine(" ");
-            Console.WriteLine("Total Large Widgets:  {0, 5} {1, 5}", (_iNumberOfLargeWidgets2).ToString(), " that are " + _sColorDefaultWidget3);
-            Console.WriteLine("Your Large Gadgets Serial Numbers begin with \"03LRG\", and followed by: ");
+            Console.WriteLine(" Total Large Widgets:  {0, 5} {1, 5}", (_iNumberOfLargeWidgets2).ToString(), " that are " + _sColorDefaultWidget3);
+
             Console.WriteLine(" ");
 
-            Console.WriteLine("Total Gears    : {0, 5}", iTotalGears.ToString());
-            Console.WriteLine("Total Springs  : {0, 5}", iTotalSprings.ToString());//iTotalWidSprings2.ToString());
-            Console.WriteLine("Total Levers   : {0, 5}", iTotalLevers.ToString());//iTotalWidLevers2.ToString());
-            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine(" Total Gears    : {0, 5}", iTotalGears.ToString());
+            Console.WriteLine(" Total Springs  : {0, 5}", iTotalSprings.ToString());
+            Console.WriteLine(" Total Levers   : {0, 5}", iTotalLevers.ToString());
+            Console.WriteLine(" ----------------------------------------------------");
 
-            Console.WriteLine("Sub Total Price              : {0, 20}", fTotalOrderPrice.ToString("C2"));
-            Console.WriteLine("Shipping Cost                : {0, 20}", "$25.00");
+            Console.WriteLine(" Sub Total Price              : {0, 20}", fTotalOrderPrice.ToString("C2"));
+            Console.WriteLine(" Shipping Cost                : {0, 20}", "$25.00");
             fTotalOrderPrice += 25.00f;
-            Console.WriteLine("Total Order & Shipping Price : {0, 20}", fTotalOrderPrice.ToString("C2"));
+            Console.WriteLine(" Total Order & Shipping Price : {0, 20}", fTotalOrderPrice.ToString("C2"));
         }
     }
 }

@@ -13,10 +13,10 @@ namespace WagCorp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Wag Corp's Gadgets & Widgets online shop...");
-            Console.WriteLine("Where all your gadget and widget needs are met!");
+            Console.WriteLine(" Welcome to the Wag Corp's Gadgets & Widgets online shop...");
+            Console.WriteLine(" Where all your gadget and widget needs are met!");
             Console.WriteLine(" ");
-            Console.WriteLine("Please let us know if you would like to place a Gadget (G) or a Widget (W) order with us:");
+            Console.WriteLine(" Please let us know if you would like to place a Gadget (G) or a Widget (W) order with us:");
             char orderType = Convert.ToChar(Console.ReadLine().ToUpper());
 
             if (orderType == 'G')
@@ -34,7 +34,7 @@ namespace WagCorp
             else
             {
                 Console.WriteLine(" ");
-                Console.WriteLine("You did not enter a valid option. Please start over.");
+                Console.WriteLine(" You did not enter a valid option. Please start over.");
                 Console.WriteLine(" ");
             }
         }

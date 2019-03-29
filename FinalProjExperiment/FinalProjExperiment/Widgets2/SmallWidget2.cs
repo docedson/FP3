@@ -13,11 +13,12 @@ namespace Widgets2
     {
         public SmallWidget2() : base(50.00f)
         {
-            /*_defaultGears = 2;
+            _defaultGears = 2;
             _defaultSprings = 3;
-            _defaultLevers = 1;*/
+            _defaultLevers = 1;
             Serials = WAGSerialGen.Instance.NextSerial(WaGs.SmallWidget);
             Console.WriteLine("The selected Small Widget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("Serial Numbers: " + Serials);
         }
 
         public override void SetupGears()
@@ -48,6 +49,14 @@ namespace Widgets2
             }
             Levers = _defaultLevers;
         }
+
+        /*public override void SetupSerials()
+        {
+            if (!IsWidgetOrder)
+            {
+                Console.WriteLine("The Serial Numbers are: " + Serials.ToString());
+            }
+        }*/
 
         public override bool Equals(object obj)
         {

@@ -17,6 +17,7 @@ namespace Widgets2
             _defaultLevers = 3;
             Serials = WAGSerialGen.Instance.NextSerial(WaGs.MediumWidget);
             Console.WriteLine("The selected Medium Widget is " + Price.ToString("C2") + " each");
+            //Console.WriteLine("Serial Numbers: " + Serials);
         }
 
 
